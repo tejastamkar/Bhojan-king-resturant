@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restroapp/navbarscreens/homescreen.dart';
+import 'package:restroapp/navbarscreens/navbar.dart';
 import 'package:restroapp/screens/signinscreen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (contect) =>
-                                            const HomeScreen()));
+                                            const NavBarScreen()));
                               },
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
@@ -193,8 +193,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (contect) =>
-                                              const HomeScreen()));
+                                              const NavBarScreen()));
                                 },
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  primary: Colors.white,
+                                  side: const BorderSide(
+                                    color: Color.fromRGBO(167, 43, 67, 0.2),
+                                  ),
+                                ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(15.0),
                                   child: Row(
@@ -220,13 +227,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                       const Spacer(flex: 2),
                                     ],
-                                  ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  primary: Colors.white,
-                                  side: const BorderSide(
-                                    color: Color.fromRGBO(167, 43, 67, 0.2),
                                   ),
                                 ),
                               ),

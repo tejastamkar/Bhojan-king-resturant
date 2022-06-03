@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restroapp/navbarscreens/homescreen.dart';
+import 'package:restroapp/navbarscreens/navbar.dart';
 import 'package:restroapp/screens/loginscreen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -267,7 +267,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (contect) =>
-                                            const HomeScreen()));
+                                            const NavBarScreen()));
                               },
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
