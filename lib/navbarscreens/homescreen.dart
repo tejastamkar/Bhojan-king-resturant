@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:restroapp/Data/fooddata.dart';
+import 'package:restroapp/Data/itemlistdata.dart';
 import 'package:restroapp/widgets/bigfoodcards.dart';
 import 'package:restroapp/widgets/flitre.dart';
 import 'package:restroapp/widgets/topcategory.dart';
@@ -23,35 +24,77 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isSwitched = false;
+  String location = 'Home';
+  String dropdownvalue = 'En';
+
+  // List of items in our dropdown menu
+
+  int _current = 0;
   @override
   Widget build(BuildContext context) {
-    int _current = 0;
     double height = MediaQuery.of(context).size.height;
     // final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-    // getIndcatorIndex(int index, CarouselPageChangedReason reason) {
-    //   setState(() {
-    //     _current = index;
-    //   });
-    // }
-
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
-        toolbarHeight: 80,
-        title: Image.asset('icons/main_logo.png'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SvgPicture.asset(
-              'icons/bell.svg',
-              color: Theme.of(context).primaryColor,
+        foregroundColor: Colors.black,
+        title: Row(
+          children: [
+            SvgPicture.asset('icons/map-pin.svg'),
+            const SizedBox(
+              width: 10,
             ),
+            Text(location),
+            const SizedBox(
+              width: 10,
+            ),
+            SvgPicture.asset('icons/chevron-down.svg')
+          ],
+        ),
+        actions: [
+          DropdownButton(
+            value: dropdownvalue,
+            alignment: AlignmentDirectional.center,
+
+            icon: const Icon(Icons.keyboard_arrow_down),
+            underline: const SizedBox(),
+            // Array list of items
+            items: items.map((String items) {
+              return DropdownMenuItem(
+                value: items,
+                child: Text(items),
+              );
+            }).toList(),
+            // After selecting the desired option,it will
+            // change button value to selected value
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownvalue = newValue!;
+              });
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
+            child: ClipOval(
+              // borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                'https://1.bp.blogspot.com/-arGwhEe2rG0/YTuyVzbS2NI/AAAAAAAAuUU/tKgGGBXs4Ig1kDG63eB8R_CKppQ8HY71QCLcBGAsYHQ/s920/Best-Profile-Pic-For-Boys%2B%25281%2529.png',
+                width: 40,
+                height: 10,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 10,
           )
         ],
       ),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: const ScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
@@ -65,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                     child: CarouselSlider(
                       options: CarouselOptions(
-                          height: height - 700,
+                          height: height / 5,
                           aspectRatio: 16 / 9,
                           viewportFraction: 1,
                           initialPage: 0,
@@ -77,9 +120,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           enlargeCenterPage: true,
                           scrollDirection: Axis.horizontal,
                           onPageChanged: (index, reason) {
-                            // setState(() {
-                            //   _current = index;
-                            // });
+                            setState(() {
+                              _current = index;
+                            });
                           }),
                       items: imageDataItems.map((i) {
                         return Builder(
@@ -97,9 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: CarouselIndicator(
                       height: 10,
                       width: 10,
+                      // animationDuration: 100,
                       cornerRadius: 10,
-                      color: const Color.fromRGBO(0, 0, 0, 0.6),
-                      activeColor: const Color.fromRGBO(0, 129, 100, 1),
+                      color: const Color.fromARGB(250, 255, 255, 255),
+                      activeColor: Theme.of(context).primaryColor,
                       count: imageDataItems.length,
                       index: _current,
                     ),

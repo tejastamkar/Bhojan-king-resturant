@@ -13,7 +13,6 @@ class NavBarScreen extends StatefulWidget {
 }
 
 class _NavBarScreenState extends State<NavBarScreen> {
-  // ignore: prefer_final_fields
   int _selectedIndex = 0;
   String appBarTitle = 'Home';
   final screens = [
@@ -72,13 +71,19 @@ class _NavBarScreenState extends State<NavBarScreen> {
             label: 'Street Vendors',
           ),
         ],
-        selectedFontSize: 20,
-        unselectedFontSize: 20,
-        selectedLabelStyle: const TextStyle(fontSize: 12),
-        unselectedLabelStyle: const TextStyle(fontSize: 12),
+        selectedFontSize: 10,
+        unselectedFontSize: 10,
+        selectedLabelStyle: const TextStyle(fontSize: 10),
+        unselectedLabelStyle: const TextStyle(fontSize: 10),
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: const Color.fromRGBO(165, 153, 153, 1),
+        onTap: (index) => {
+          setState(() {
+            _selectedIndex = index;
+          }),
+          // changeAppBarTitle(inDexNumber: _selectedIndex)
+        },
       ),
     );
   }

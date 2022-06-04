@@ -3,18 +3,20 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:restroapp/widgets/tags.dart';
 
 class FoodCard extends StatefulWidget {
-  final String name, image, decs;
+  final String name, image, decs, category;
   final int price, reviews;
   final double rate;
-  final bool type;
+  final bool type, showdecs;
   const FoodCard(
       {Key? key,
       required this.name,
+      required this.category,
       required this.image,
       required this.decs,
       required this.price,
       required this.rate,
       required this.type,
+      required this.showdecs,
       required this.reviews})
       : super(key: key);
 
@@ -66,7 +68,7 @@ class _FoodCardState extends State<FoodCard> {
                   SizedBox(
                     width: 200,
                     child: Text(
-                      widget.decs,
+                      widget.showdecs ? widget.decs : widget.category,
                       style: const TextStyle(
                           fontSize: 10, fontWeight: FontWeight.w300),
                     ),

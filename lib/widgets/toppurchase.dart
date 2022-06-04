@@ -1,52 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:restroapp/Data/fooddata.dart';
 import 'package:restroapp/widgets/foodcards.dart';
-
-List toppurchaseItems = [
-  {
-    'name': 'Maharaja Mac',
-    'image': 'assets/burgerImage.png',
-    'decs':
-        '2 Crispy Veg Double Patty+ 1 King Peri Peri Fries + 1 Veggie Strips + 2 Pepsi (M)',
-    'price': 440,
-    'rate': 1.4,
-    'review': 102,
-    'type': true,
-    'category': 'Burger'
-  },
-  {
-    'name': 'Maharaja Mac',
-    'image': 'assets/burgerImage.png',
-    'decs':
-        '2 Crispy Veg Double Patty+ 1 King Peri Peri Fries + 1 Veggie Strips + 2 Pepsi (M)',
-    'price': 440,
-    'rate': 3.4,
-    'review': 102,
-    'type': true,
-    'category': 'Burger'
-  },
-  {
-    'name': 'Maharaja Mac',
-    'image': 'assets/burgerImage.png',
-    'decs':
-        '2 Crispy Veg Double Patty+ 1 King Peri Peri Fries + 1 Veggie Strips + 2 Pepsi (M)',
-    'price': 440,
-    'rate': 3.4,
-    'review': 102,
-    'type': false,
-    'category': 'Burger'
-  },
-  {
-    'name': 'Maharaja Mac',
-    'image': 'assets/burgerImage.png',
-    'decs':
-        '2 Crispy Veg Double Patty+ 1 King Peri Peri Fries + 1 Veggie Strips + 2 Pepsi (M)',
-    'price': 440,
-    'rate': 4.0,
-    'review': 102,
-    'type': false,
-    'category': 'Burger'
-  },
-];
 
 class TopPurchaseSec extends StatefulWidget {
   const TopPurchaseSec({Key? key}) : super(key: key);
@@ -58,11 +12,12 @@ class TopPurchaseSec extends StatefulWidget {
 class _TopPurchaseSecState extends State<TopPurchaseSec> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(5),
           child: Row(
             children: [
               const Text(
@@ -70,13 +25,16 @@ class _TopPurchaseSecState extends State<TopPurchaseSec> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
               const Spacer(),
-              Text(
-                'View all',
-                style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    decoration: TextDecoration.underline),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'View all',
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline),
+                ),
               )
             ],
           ),
@@ -84,7 +42,7 @@ class _TopPurchaseSecState extends State<TopPurchaseSec> {
         const SizedBox(
           height: 10,
         ),
-        SizedBox(height: 128, child: topPurchaseItemList())
+        SizedBox(height: width / 3.211, child: topPurchaseItemList())
       ],
     );
   }
@@ -96,10 +54,12 @@ Widget topPurchaseItemList() => ListView.builder(
       physics: const ScrollPhysics(),
       itemCount: toppurchaseItems.length,
       itemBuilder: (context, index) => FoodCard(
+          showdecs: false,
           type: toppurchaseItems[index]['type'],
           name: toppurchaseItems[index]['name'],
           image: toppurchaseItems[index]['image'],
-          decs: toppurchaseItems[index]['category'],
+          decs: toppurchaseItems[index]['decs'],
+          category: toppurchaseItems[index]['category'],
           price: toppurchaseItems[index]['price'],
           rate: toppurchaseItems[index]['rate'],
           reviews: toppurchaseItems[index]['review']),
