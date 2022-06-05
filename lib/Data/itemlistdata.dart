@@ -4,6 +4,32 @@ var items = [
   'Hi',
 ];
 
+List picFavList = [
+  {'image': 'icons/desserts.png', 'name': 'Desserts'},
+  {'image': 'icons/drinks.png', 'name': 'Drinks'},
+  {'image': 'icons/healthy.png', 'name': 'Healthy'},
+  {'image': 'icons/non-veg.png', 'name': 'Non-veg'},
+  {'image': 'icons/veg.png', 'name': 'Veg'},
+  {'image': 'icons/offers.png', 'name': 'Offers'},
+  {'image': 'icons/pocket.png', 'name': 'Pocket Friendly'},
+];
+List offerList = [
+  'assets/offer (1).png',
+  'assets/offer (2).png',
+  'assets/offer (3).png',
+  'assets/offer (4).png',
+];
+
+List brandList = [
+  {'image': 'assets/dominos.png', 'name': 'Dominos'},
+  {'image': 'assets/mcd.png', 'name': "McDonald's"},
+  {'image': 'assets/pizzahut.png', 'name': 'Pizza Hut'},
+  {'image': 'assets/subway.png', 'name': 'Subway'},
+  {'image': 'assets/ccd.png', 'name': 'Cafe Coffee Day'},
+  {'image': 'assets/wowmomo.png', 'name': 'Wow Momo'},
+  {'image': 'assets/tacobell.png', 'name': 'Taco Bell'},
+];
+
 List orderList = [
   {
     'Order_No': 1212090,

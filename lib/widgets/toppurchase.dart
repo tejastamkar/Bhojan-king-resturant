@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restroapp/Data/fooddata.dart';
+import 'package:restroapp/screens/toppurchasescreen.dart';
 import 'package:restroapp/widgets/foodcards.dart';
 
 class TopPurchaseSec extends StatefulWidget {
@@ -26,7 +27,12 @@ class _TopPurchaseSecState extends State<TopPurchaseSec> {
               ),
               const Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (contect) => const TopPurchaseScreen()));
+                },
                 child: Text(
                   'View all',
                   style: TextStyle(
@@ -52,7 +58,7 @@ Widget topPurchaseItemList() => ListView.builder(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       physics: const ScrollPhysics(),
-      itemCount: toppurchaseItems.length,
+      itemCount: 4,
       itemBuilder: (context, index) => FoodCard(
           showdecs: false,
           type: toppurchaseItems[index]['type'],

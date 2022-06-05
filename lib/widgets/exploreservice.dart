@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restroapp/screens/deliveryscreen.dart';
 
 class ExploreServiceWidget extends StatefulWidget {
   const ExploreServiceWidget({Key? key}) : super(key: key);
@@ -26,6 +27,12 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 9),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (contect) => const DeliveryScreen()));
+                  },
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
