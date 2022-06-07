@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:restroapp/Data/fooddata.dart';
 import 'package:restroapp/Data/itemlistdata.dart';
+import 'package:restroapp/screens/profilescreen.dart';
 import 'package:restroapp/widgets/bigfoodcards.dart';
 import 'package:restroapp/widgets/flitre.dart';
 import 'package:restroapp/widgets/topcategory.dart';
@@ -60,15 +61,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
             icon: const Icon(Icons.keyboard_arrow_down),
             underline: const SizedBox(),
-            // Array list of items
+         
             items: items.map((String items) {
               return DropdownMenuItem(
                 value: items,
                 child: Text(items),
               );
             }).toList(),
-            // After selecting the desired option,it will
-            // change button value to selected value
+            
             onChanged: (String? newValue) {
               setState(() {
                 dropdownvalue = newValue!;
@@ -77,13 +77,20 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
-            child: ClipOval(
-              // borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                'https://1.bp.blogspot.com/-arGwhEe2rG0/YTuyVzbS2NI/AAAAAAAAuUU/tKgGGBXs4Ig1kDG63eB8R_CKppQ8HY71QCLcBGAsYHQ/s920/Best-Profile-Pic-For-Boys%2B%25281%2529.png',
-                width: 40,
-                height: 10,
-                fit: BoxFit.fill,
+            child: InkWell(
+              onTap: (() =>  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (contect) =>
+                                              const ProfileScreen()))),
+              child: ClipOval(
+                // borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  'https://1.bp.blogspot.com/-arGwhEe2rG0/YTuyVzbS2NI/AAAAAAAAuUU/tKgGGBXs4Ig1kDG63eB8R_CKppQ8HY71QCLcBGAsYHQ/s920/Best-Profile-Pic-For-Boys%2B%25281%2529.png',
+                  width: 40,
+                  height: 10,
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
           ),
@@ -163,8 +170,8 @@ class _HomeScreenState extends State<HomeScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1 / 1.1,
+                gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1 /1.2,
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
                     crossAxisCount: 2),

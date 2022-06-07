@@ -126,8 +126,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 8 / 8.8,
-                    mainAxisSpacing: 1,
+                    childAspectRatio: 1/1.2,
+                    mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
                     crossAxisCount: 2),
                 itemCount: foodItem.length,

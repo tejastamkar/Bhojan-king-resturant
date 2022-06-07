@@ -26,111 +26,102 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 9),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (contect) => const DeliveryScreen()));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/Delivery.png',
-                            width: 90,
-                            height: 70,
-                          ),
-                          Text(
-                            'Delivery',
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                        ],
-                      ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (contect) => const DeliveryScreen()));
+                },
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/Delivery.png',
+                          width: 90,
+                          height: 70,
+                        ),
+                        Text(
+                          'Delivery',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (contect) => const DiningScreen()));
-                  },
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 22, vertical: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/Dining.png',
-                            width: 66,
-                            height: 70,
-                          ),
-                          Text(
-                            'Dining',
-                            style: TextStyle(
-                                // height: 1,
-                                // wordSpacing: 1,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                        ],
-                      ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (contect) => const DiningScreen()));
+                },
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 22, vertical: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/Dining.png',
+                          width: 66,
+                          height: 70,
+                        ),
+                        Text(
+                          'Dining',
+                          style: TextStyle(
+                              // height: 1,
+                              // wordSpacing: 1,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 9),
-                child: InkWell(
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 19, vertical: 9),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/Street Vendors.png',
-                            width: 62,
-                            height: 62,
-                          ),
-                          Text(
-                            'Street\nVendors',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                height: 1,
-                                wordSpacing: 1,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                        ],
-                      ),
+              InkWell(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 19, vertical: 12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/Street Vendors.png',
+                          width: 62,
+                          height: 62,
+                        ),
+                        Text(
+                          'Street\nVendors',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              height: 1,
+                              wordSpacing: 1,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ],
                     ),
                   ),
                 ),
