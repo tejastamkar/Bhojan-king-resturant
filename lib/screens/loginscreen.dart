@@ -28,6 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       const BorderRadius.vertical(bottom: Radius.circular(120)),
                   child: Image.asset(
                     'icons/bgLogin.png',
+                    width: MediaQuery.of(context).size.width,
+					height: MediaQuery.of(context).size.width /3 ,
                     fit: BoxFit.cover,
                   )),
               Column(

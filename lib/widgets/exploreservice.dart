@@ -23,7 +23,8 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 9),
@@ -40,10 +41,11 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
                             'assets/Delivery.png',
-                            width: 80,
+                            width: 90,
                             height: 70,
                           ),
                           Text(
@@ -59,8 +61,9 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
                   ),
                 ),
               ),
+              const Spacer(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 9),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
@@ -72,17 +75,21 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 22, vertical: 10),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
                             'assets/Dining.png',
-                            width: 80,
+                            width: 66,
                             height: 70,
                           ),
                           Text(
                             'Dining',
                             style: TextStyle(
+                                // height: 1,
+                                // wordSpacing: 1,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
                                 color: Theme.of(context).primaryColor),
@@ -93,31 +100,31 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
                   ),
                 ),
               ),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 9),
                 child: InkWell(
                   child: Card(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(15)),
                     child: Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 19, vertical: 9),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
                             'assets/Street Vendors.png',
-                            width: 80,
-                            height: 50,
+                            width: 62,
+                            height: 62,
                           ),
                           Text(
-                            'Street',
+                            'Street\nVendors',
+                            textAlign: TextAlign.center,
                             style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          Text(
-                            'Vendors',
-                            style: TextStyle(
+                                height: 1,
+                                wordSpacing: 1,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
                                 color: Theme.of(context).primaryColor),

@@ -35,15 +35,18 @@ class _TopCategorySecState extends State<TopCategorySec> {
         const SizedBox(
           height: 10,
         ),
-        GridView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisSpacing: 0, crossAxisSpacing: 0, crossAxisCount: 4),
-            itemCount: category.length,
-            itemBuilder: (context, index) => categoryCards(
-                name: category[index]['name'],
-                image: category[index]['image'])),
+        SizedBox(
+          height: MediaQuery.of(context).size.width / 2,
+          child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 0, crossAxisSpacing: 0, crossAxisCount: 4),
+              itemCount: category.length,
+              itemBuilder: (context, index) => categoryCards(
+                  name: category[index]['name'],
+                  image: category[index]['image'])),
+        ),
       ],
     );
   }
