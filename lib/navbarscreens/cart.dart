@@ -88,28 +88,9 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
               physics: const ClampingScrollPhysics(),
               controller: tabController,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: SingleChildScrollView(
-                    physics: const ScrollPhysics(),
-                    child: ListView.builder(
-                        itemCount: orderList.length,
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (context, index) {
-                          return OrderCardWidget(
-                              status: orderList[index]['status'],
-                              date: orderList[index]['date'],
-                              orderNo: orderList[index]['Order_No'],
-                              time: orderList[index]['time'],
-                              itemNo: orderList[index]['item_no'],
-                              price: orderList[index]['price'],
-                              riderImage: orderList[index]['rider_image'],
-                              riderName: orderList[index]['rider_name'],
-                              riderNumber: orderList[index]['rider_number']);
-                        }),
-                  ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: OrderList(),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),

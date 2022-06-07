@@ -15,9 +15,6 @@ class _BrandWidgetState extends State<BrandWidget> {
     return Column(
       children: [
         Image.asset(widget.image),
-        // const SizedBox(
-        //   height: 5,
-        // ),
         Text(
           widget.name,
           style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),

@@ -66,7 +66,7 @@ class _FoodCardState extends State<FoodCard> {
                         fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
-                    width: 200,
+                    width: 180,
                     child: Text(
                       widget.showdecs ? widget.decs : widget.category,
                       style: const TextStyle(
@@ -94,34 +94,36 @@ class _FoodCardState extends State<FoodCard> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 7),
-                  Container(
-                    width: 100,
-                    height: 1,
-                    color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 7),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 5,
+                      height: 1,
+                      color: Colors.black,
+                    ),
                   ),
-                  const SizedBox(height: 7),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text("₹${widget.price}"),
-                      const SizedBox(
-                        width: 80,
-                      ),
-                      SizedBox(
-                        width: 80,
-                        height: 30,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Theme.of(context).primaryColor),
-                              foregroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          child: const Text('ADD'),
-                        ),
-                      ),
+                      Text("₹${widget.price}",
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600)),
                     ],
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).primaryColor,
+                        onPrimary: Colors.white,
+                        padding: const EdgeInsets.all(5)),
+                    child: const Text('ADD'),
                   ),
                 ],
               ),

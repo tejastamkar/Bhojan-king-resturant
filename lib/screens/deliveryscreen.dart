@@ -20,7 +20,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        // elevation: 0,
         title: const Text(
           'Delivery',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -67,7 +67,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                   height: width / 3,
                   aspectRatio: 16 / 9,
                   viewportFraction: 0.8,
-                  initialPage: 2,
+                  initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
                   autoPlayAnimationDuration: const Duration(milliseconds: 1000),
@@ -86,10 +86,9 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                   );
                 }).toList(),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: const SizedBox(height: 46, child: FliterSelector()),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: SizedBox(height: 46, child: FliterSelector()),
               ),
               const Padding(
                 padding: EdgeInsets.all(8.0),

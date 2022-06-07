@@ -30,6 +30,111 @@ List brandList = [
   {'image': 'assets/tacobell.png', 'name': 'Taco Bell'},
 ];
 
+List doneOrderList = [
+  {
+    'name': "Domino's Pizza",
+    'image': 'assets/burgerImage.png',
+    'address': 'Goregaon',
+    'order': [
+      {
+        'item_name': 'Double Cheese Margherita',
+        'number_of_item': '1',
+        'amount': '340'
+      },
+      {'item_name': 'Veg Loaded', 'number_of_item': '2', 'amount': '540'},
+      {'item_name': 'Pepsi', 'number_of_item': '4', 'amount': '60'},
+      {'item_name': 'Farmhouse', 'number_of_item': '1', 'amount': '540'},
+    ],
+    'dc': '130',
+    'tax': '50',
+    'restro_address': [
+      {
+        'name': 'FreshMenu',
+        'address': '70,Virwani Industrial Easte,Goregaon East,Mumbai'
+      }
+    ],
+    'delivery_address': [
+      {
+        'name': 'Home',
+        'address': 'Raheja height,Room no-1304 ,Goregaon East, Mumbai'
+      }
+    ],
+    'delivery_type': 'COD',
+    'total_amount': '2,260',
+    'rate': 4,
+    'Order_No': 1212090,
+    'time': '12:14',
+    'date': '23 / 05 / 22',
+  },
+  {
+    'name': "Domino's Pizza",
+    'image': 'assets/burgerImage.png',
+    'address': 'Goregaon',
+    'order': [
+      {
+        'item_name': 'Double Cheese Margherita',
+        'number_of_item': '1',
+        'amount': '540'
+      },
+      {'item_name': 'Farmhouse', 'number_of_item': '1', 'amount': '540'},
+    ],
+    'dc': '130',
+    'tax': '50',
+    'restro_address': [
+      {
+        'name': 'FreshMenu',
+        'address': '70,Virwani Industrial Easte,Goregaon East,Mumbai'
+      }
+    ],
+    'delivery_address': [
+      {
+        'name': 'Home',
+        'address': 'Raheja height,Room no-1304 ,Goregaon East, Mumbai'
+      }
+    ],
+    'delivery_type': 'COD',
+    'total_amount': '700',
+    'rate': 4,
+    'Order_No': 1212090,
+    'time': '12:14',
+    'date': '23 / 05 / 22',
+  },
+  {
+    'name': "Domino's Pizza",
+    'image': 'assets/burgerImage.png',
+    'address': 'Goregaon',
+    'order': [
+      {
+        'item_name': 'Double Cheese Margherita',
+        'number_of_item': '1',
+        'amount': '540'
+      },
+      {'item_name': 'Pepsi', 'number_of_item': '4', 'amount': '40'},
+      {'item_name': 'Farmhouse', 'number_of_item': '1', 'amount': '540'},
+    ],
+    'dc': '130',
+    'tax': '50',
+    'restro_address': [
+      {
+        'name': 'FreshMenu',
+        'address': '70,Virwani Industrial Easte,Goregaon East,Mumbai'
+      }
+    ],
+    'delivery_address': [
+      {
+        'name': 'Home',
+        'address': 'Raheja height,Room no-1304 ,Goregaon East, Mumbai'
+      }
+    ],
+    'delivery_type': 'COD',
+    'total_amount': '1,260',
+    'rate': 4,
+    'Order_No': 1212090,
+    'time': '12:14',
+    'date': '23 / 05 / 22',
+  },
+];
+
 List orderList = [
   {
     'Order_No': 1212090,
@@ -76,7 +181,7 @@ List orderList = [
     'rider_image':
         'https://1.bp.blogspot.com/-arGwhEe2rG0/YTuyVzbS2NI/AAAAAAAAuUU/tKgGGBXs4Ig1kDG63eB8R_CKppQ8HY71QCLcBGAsYHQ/s920/Best-Profile-Pic-For-Boys%2B%25281%2529.png',
     'rider_number': 2123052313,
-    'status': 'Pending',
+    'status': 'Done',
     'date': '23 / 05 / 22',
   },
   {

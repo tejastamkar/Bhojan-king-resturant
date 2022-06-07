@@ -92,14 +92,14 @@ class _SearchScreenState extends State<SearchScreen> {
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
-                  height: width / 4,
+                  height: width / 3.5,
                   aspectRatio: 16 / 9,
                   viewportFraction: 0.5,
-                  initialPage: 2,
+                  initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
                   autoPlayAnimationDuration: const Duration(milliseconds: 1000),
-                  autoPlayCurve: Curves.easeInOutBack,
+                  autoPlayCurve: Curves.easeInQuad,
                   enlargeCenterPage: false,
                   scrollDirection: Axis.horizontal,
                 ),

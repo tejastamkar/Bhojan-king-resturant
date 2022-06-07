@@ -256,6 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: Color.fromRGBO(167, 43, 67, 1)),
                                   ),
                                   onPressed: () {
+                                    Navigator.pop(context);
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(

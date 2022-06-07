@@ -263,6 +263,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             ElevatedButton(
                               onPressed: () {
+                                Navigator.pop(context);
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -312,6 +313,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                         color: Color.fromRGBO(167, 43, 67, 1)),
                                   ),
                                   onPressed: () {
+                                    Navigator.pop(context);
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(

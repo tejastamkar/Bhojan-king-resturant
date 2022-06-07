@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-class BigFoodCard extends StatefulWidget {
-  final String name, item, image;
+class RestroCardWidget extends StatefulWidget {
+  final String name, place, image;
   final double rate;
-  final int time;
-  const BigFoodCard(
+  const RestroCardWidget(
       {Key? key,
       required this.name,
       required this.image,
-      required this.item,
-      required this.time,
+      required this.place,
       required this.rate})
       : super(key: key);
 
   @override
-  State<BigFoodCard> createState() => _BigFoodCardState();
+  State<RestroCardWidget> createState() => _RestroCardWidgetState();
 }
 
-class _BigFoodCardState extends State<BigFoodCard> {
+class _RestroCardWidgetState extends State<RestroCardWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -47,7 +44,7 @@ class _BigFoodCardState extends State<BigFoodCard> {
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Text(
-                widget.item,
+                widget.place,
                 style: const TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.w400,
@@ -89,18 +86,6 @@ class _BigFoodCardState extends State<BigFoodCard> {
                       ),
                     ),
                   ),
-                  const Spacer(),
-                  SvgPicture.asset(
-                    'icons/clock.svg',
-                    height: 18,
-                  ),
-                  Text(
-                    '${widget.time} mins',
-                    style: const TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 0.58),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400),
-                  )
                 ],
               )
             ],
