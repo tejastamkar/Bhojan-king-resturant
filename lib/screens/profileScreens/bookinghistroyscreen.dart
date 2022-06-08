@@ -25,22 +25,21 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-ListView.builder(
-                        itemCount: bookingList.length,
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (context, index) {
-                          return BookingCardWidget(
-                              name: bookingList[index]['name'],
-                              address: bookingList[index]['address'],
-                              date: bookingList[index]['date'],
-                              time: bookingList[index]['time'],
-                              status: bookingList[index]['status'],
-                              count: bookingList[index]['count']);
-                        },
-                      ),
-
+              ListView.builder(
+                itemCount: bookingList.length,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) {
+                  return BookingCardWidget(
+                      name: bookingList[index]['name'],
+                      address: bookingList[index]['address'],
+                      date: bookingList[index]['date'],
+                      time: bookingList[index]['time'],
+                      status: bookingList[index]['status'],
+                      count: bookingList[index]['count']);
+                },
+              ),
             ],
           ),
         ),

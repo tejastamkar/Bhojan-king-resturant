@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:restroapp/screens/profileScreens/bookinghistroyscreen.dart';
+import 'package:restroapp/screens/profileScreens/favscreen.dart';
 import 'package:restroapp/screens/profileScreens/orderhistoryscreen.dart';
+import 'package:restroapp/screens/profileScreens/profile_editscreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -50,15 +52,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const Spacer(),
                           TextButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                  foregroundColor:
-                                      MaterialStateProperty.all(Colors.white)),
-                              child: const Text(
-                                'Edit',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w400),
-                              ))
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfileEditScreen(),
+                              ),
+                            ),
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            child: const Text(
+                              'Edit',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -185,26 +193,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  SvgPicture.asset('icons/Favourities.svg'),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text('Favourities',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
-                  const Spacer(),
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: SvgPicture.asset(
-                      'icons/chevron-down.svg',
-                      color: Colors.black,
+            InkWell(
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FavScreen(),
+                  ))),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/Favourities.svg'),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  )
-                ],
+                    const Text('Favourities',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
