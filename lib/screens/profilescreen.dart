@@ -4,6 +4,7 @@ import 'package:restroapp/screens/profileScreens/bookinghistroyscreen.dart';
 import 'package:restroapp/screens/profileScreens/favscreen.dart';
 import 'package:restroapp/screens/profileScreens/orderhistoryscreen.dart';
 import 'package:restroapp/screens/profileScreens/profile_editscreen.dart';
+import 'package:restroapp/screens/settingscreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -281,6 +282,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   )
                 ],
+              ),
+            ), InkWell(
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingScreen(),
+                  ))),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/settings.svg'),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text('Settings',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,  
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
