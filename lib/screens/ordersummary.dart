@@ -19,6 +19,8 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> {
     final List restroAddrees = doneOrderList[widget.index]['restro_address'];
     final List deliveryAddress =
         doneOrderList[widget.index]['delivery_address'];
+
+        double width =MediaQuery.of(context).size.width;
     Widget bill() => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: Card(
@@ -156,7 +158,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.width / 10,
+                        height: width < 440 ? width / 10 : width /12,
                       ),
                       Text(
                         deliveryAddress[0]['name'],
@@ -183,7 +185,7 @@ class _OrderSummaryScreenState extends State<OrderSummaryScreen> {
                               fontWeight: FontWeight.w400,
                               color: Color.fromRGBO(107, 107, 107, 1))),
                       SizedBox(
-                        height: MediaQuery.of(context).size.width / 5,
+                        height: width < 440 ? width / 5 : width /10,
                         child: const DottedLine(
                           dashLength: 2.5,
                           direction: Axis.vertical,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:restroapp/screens/profileScreens/bookinghistroyscreen.dart';
+import 'package:restroapp/screens/profileScreens/orderhistoryscreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -13,20 +15,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final int number = 9819233949;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
-       
           children: [
             Stack(
               alignment: Alignment.topCenter,
               children: [
                 SizedBox(
-                    height: MediaQuery.of(context).size.width < 440? MediaQuery.of(context).size.width /1.8 : MediaQuery.of(context).size.width / 4,
+                  height: width < 440 ? width / 1.8 : width / 4,
                   child: Image.asset(
                     'assets/profilebg.png',
                     fit: BoxFit.cover,
+                    width: width,
                   ),
                 ),
                 Column(
@@ -80,231 +83,316 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Text(
                           '$number',
-                          style: const TextStyle(color: Colors.white , fontSize: 14 , fontWeight: FontWeight.w400),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white
-                            ),
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white),
                             width: 10,
                             height: 10,
                           ),
-                        ), Text(
+                        ),
+                        Text(
                           email,
-                          style: const TextStyle(color: Colors.white , fontSize: 14 , fontWeight: FontWeight.w400),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
                   ],
                 )
               ],
-            ), 
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/Order.svg'), 
-                  const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Order History' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
-                ],
+            ),
+            InkWell(
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OrderHistoryScreen(),
+                  ))),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/Order.svg'),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text('Order History',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
+                color: const Color.fromRGBO(196, 196, 196, 0.3),
+              ),
+            ),
+            InkWell(
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BookingHistoryScreen(),
+                  ))),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/Booking.svg'),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text('Booking History',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/Booking.svg'), 
+                children: [
+                  SvgPicture.asset('icons/Favourities.svg'),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Booking History' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Favourities',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/Favourities.svg'), 
+                children: [
+                  SvgPicture.asset('icons/Saved.svg'),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Favourities' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Saved Address',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/Saved.svg'), 
+                children: [
+                  SvgPicture.asset('icons/bell.svg',
+                      color: Theme.of(context).primaryColor),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Saved Address' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Notifications',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/bell.svg' , color: Theme.of(context).primaryColor), 
+                children: [
+                  SvgPicture.asset('icons/Help.svg'),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Notifications' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Help & Support',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/Help.svg'), 
+                children: [
+                  SvgPicture.asset('icons/Return Policy.svg'),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Help & Support' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Return Policy',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/Return Policy.svg'), 
+                children: [
+                  SvgPicture.asset('icons/tandcicon.svg'),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Return Policy' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Terms & Condition',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/tandcicon.svg'), 
+                children: [
+                  SvgPicture.asset('icons/log-out.svg'),
                   const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Terms & Condition' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-
+                    width: 10,
+                  ),
+                  const Text('Logout',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                  const Spacer(),
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: SvgPicture.asset(
+                      'icons/chevron-down.svg',
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
-                color: const Color.fromRGBO(196, 196, 196, 0.3),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [ 
-                  SvgPicture.asset('icons/log-out.svg'), 
-                  const SizedBox(
-                    width:  10 ,
-                  ), 
-                  const Text('Logout' , style:TextStyle( fontWeight:  FontWeight.w400 , fontSize: 18)) , 
-                  const Spacer(), 
-                  RotatedBox(quarterTurns: 3 , child:  SvgPicture.asset('icons/chevron-down.svg' , color:  Colors.black,),)
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric( horizontal:  20),
-              child: Container( 
-                width:  MediaQuery.of(context).size.width,
-                height: 1, 
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),

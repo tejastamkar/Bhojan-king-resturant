@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     // final GlobalKey<ScaffoldState> _key = GlobalKey();
 
     return Scaffold(
@@ -115,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                     child: CarouselSlider(
                       options: CarouselOptions(
-                          height: height / 5,
+                          height: width <440 ?  height /5:height/3,
                           aspectRatio: 16 / 9,
                           viewportFraction: 1,
                           initialPage: 0,
@@ -136,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           builder: (BuildContext context) {
                             return ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
-                                child: Image.asset(i));
+                                child: Image.asset(i , fit: BoxFit.contain, width:  width,));
                           },
                         );
                       }).toList(),
@@ -170,11 +171,11 @@ class _HomeScreenState extends State<HomeScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:   SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 1 /1.2,
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
-                    crossAxisCount: 2),
+                    crossAxisCount:  width < 440 ?  2: 5),
                 itemCount: foodItem.length,
                 itemBuilder: (context, index) => BigFoodCard(
                   name: foodItem[index]['name'],
