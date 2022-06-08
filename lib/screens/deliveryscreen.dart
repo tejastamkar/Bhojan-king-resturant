@@ -44,7 +44,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                 ),
               ),
               SizedBox(
-                height: width / 3,
+                height: width< 440 ? width / 3: width / 7,
                 child: ListView.builder(
                     physics: const ScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -64,9 +64,9 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
-                  height: width / 3,
+                  height:  width <440 ? width / 3: width/5,
                   aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
+                  viewportFraction: width <440 ?0.8: 0.4,
                   initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
@@ -80,7 +80,8 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                     builder: (BuildContext context) {
                       return Image.asset(
                         i,
-                        height: 100,
+                        height: width <440 ? 100: 140,
+                        fit: BoxFit.fill,
                       );
                     },
                   );
@@ -108,11 +109,11 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 8 / 8.8,
+                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio:  1 /1.2,
                     mainAxisSpacing: 1,
                     crossAxisSpacing: 0,
-                    crossAxisCount: 2),
+                    crossAxisCount:  width < 440 ?  2: 5),
                 itemCount: foodItem.length,
                 itemBuilder: (context, index) => BigFoodCard(
                   name: foodItem[index]['name'],

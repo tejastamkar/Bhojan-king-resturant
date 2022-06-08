@@ -25,7 +25,9 @@ Widget selector({required String name}) {
   return Card(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     child: Container(
+         height: 46,
       decoration: BoxDecoration(
+     
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           width: 0.5,

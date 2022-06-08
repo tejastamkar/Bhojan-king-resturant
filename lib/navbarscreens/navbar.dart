@@ -19,7 +19,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     const HomeScreen(),
     const SearchScreen(),
     const CartScreen(),
-    const ShoppingWindowScreen()
+    const StreetVendors()
   ];
   @override
   Widget build(BuildContext context) {
