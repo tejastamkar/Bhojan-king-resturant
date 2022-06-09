@@ -76,10 +76,19 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     }
 
     return Scaffold(
-      bottomNavigationBar: Padding(padding: const EdgeInsets.symmetric(horizontal: 10 , vertical: 15 ) , child:  ElevatedButton(onPressed: (){} , style:  ElevatedButton.styleFrom( onPrimary: Colors.white , primary:  Theme.of(context).primaryColor),child: const Padding(
-        padding:  EdgeInsets.all(12),
-        child: Text('Update'),
-      ) ,),),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+                onPrimary: Colors.white,
+                primary: Theme.of(context).primaryColor),
+            child: const Padding(
+              padding: EdgeInsets.all(12),
+              child: Text('Update'),
+            ),
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
@@ -91,21 +100,27 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
           physics: const ScrollPhysics(),
           child: Center(
             child: Column(children: [
-             if (checkUserProfileImagePath) SvgPicture.asset(
-                'icons/profile-circle.svg',
-                width: width / 4,
-                height: width / 4,
-              ) else Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: ClipOval(
-                  child: Image.file(File(userProfileImagePath), width: width / 3,
-                  height: width / 3, fit: BoxFit.fill,)
+              if (checkUserProfileImagePath)
+                SvgPicture.asset(
+                  'icons/profile-circle.svg',
+                  width: width / 4,
+                  height: width / 4,
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: ClipOval(
+                      child: Image.file(
+                    File(userProfileImagePath),
+                    width: width / 3,
+                    height: width / 3,
+                    fit: BoxFit.fill,
+                  )),
                 ),
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: InkWell(
-                  onTap: (() =>  bottomSheet()),
+                  onTap: (() => bottomSheet()),
                   child: Text(
                     'Change Profile Picture',
                     style: TextStyle(

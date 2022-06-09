@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restroapp/screens/profileScreens/changepasswordscreen.dart';
+import 'package:restroapp/screens/profileScreens/deleteaccountscreen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -10,23 +13,7 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
-    bool isSwitched = false;
- 
-
-    void toggleSwitch(bool value) {
-      if (isSwitched == false) {
-        setState(() {
-          isSwitched = true;
-        });
-       
-      } else {
-        setState(() {
-          isSwitched = false;
-         
-        });
-      }
-    }
-
+    bool isSwitched = true;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -37,27 +24,149 @@ class _SettingScreenState extends State<SettingScreen> {
         foregroundColor: Colors.black,
       ),
       backgroundColor: Colors.white,
-      body: Column(
+      body: ListView(
         children: [
-          Card(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Card(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Activate all Notification',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    ),
+                    const Spacer(),
+                    Switch(
+                      value: isSwitched,
+                      onChanged: (value) {
+                        setState(() {
+                          isSwitched = value;
+                          print(isSwitched);
+                        });
+                      },
+                      activeTrackColor: Colors.lightGreenAccent,
+                      activeColor: Colors.green,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             child: Row(
               children: [
-              const   Text(
-                  'Activate all Notification',
+                const Text(
+                  'Offers and Coupons',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
-               const  Spacer(),
+                const Spacer(),
                 Switch(
-                  onChanged: toggleSwitch,
                   value: isSwitched,
-                  activeColor: Colors.blue,
-                  activeTrackColor: Colors.yellow,
-                  inactiveThumbColor: Colors.redAccent,
-                  inactiveTrackColor: Colors.orange,
-                )
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitched = value;
+                      print(isSwitched);
+                    });
+                  },
+                  activeTrackColor: Colors.lightGreenAccent,
+                  activeColor: Colors.green,
+                ),
               ],
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            child: Row(
+              children: [
+                const Text(
+                  'Order and Booking',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                ),
+                const Spacer(),
+                Switch(
+                  value: isSwitched,
+                  onChanged: (value) {
+                    setState(() {
+                      isSwitched = value;
+                      print(isSwitched);
+                    });
+                  },
+                  activeTrackColor: Colors.lightGreenAccent,
+                  activeColor: Colors.green,
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ChangePasswordScreen()))),
+              child: Card(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Change Password',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
+                      ),
+                      const Spacer(),
+                      RotatedBox(
+                        quarterTurns: 3,
+                        child: SvgPicture.asset(
+                          'icons/chevron-down.svg',
+                          color: Colors.black,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: InkWell(
+              onTap: (() => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DeleteAccountScreen()),
+                  )),
+              child: Card(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Delete my account',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
+                      ),
+                      const Spacer(),
+                      RotatedBox(
+                        quarterTurns: 3,
+                        child: SvgPicture.asset(
+                          'icons/chevron-down.svg',
+                          color: Colors.black,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

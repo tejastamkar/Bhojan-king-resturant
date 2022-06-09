@@ -31,83 +31,189 @@ class _NavBarScreenState extends State<NavBarScreen> {
         elevation: 4,
         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
+        items: [
           BottomNavigationBarItem(
             icon: _selectedIndex == 0
                 ? Column(
-                  children: [
-                    (SvgPicture.asset('navicons/home.svg')),
-                    Text('Home' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Theme.of(context).primaryColor ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,),
-                  ],
-                )
+                    children: [
+                      (SvgPicture.asset('navicons/home.svg')),
+                      Text(
+                        'Home',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                      ),
+                    ],
+                  )
                 : Column(
-                  children: [
-                    (SvgPicture.asset('navicons/home.svg' , color: Colors.grey,)),
-                  const  Text('Home' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Colors.grey ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,color: Colors.white,),
-                  ],),
-            label: 'Home',
+                    children: [
+                      (SvgPicture.asset(
+                        'navicons/home.svg',
+                        color: Colors.grey,
+                      )),
+                      const Text(
+                        'Home',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 1
                 ? Column(
-                  children: [
-                    (SvgPicture.asset('navicons/search.svg' , color:  Theme.of(context).primaryColor,)),
-                    Text('Search' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Theme.of(context).primaryColor ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,),
-                  ],
-                )
+                    children: [
+                      (SvgPicture.asset(
+                        'navicons/search.svg',
+                        color: Theme.of(context).primaryColor,
+                      )),
+                      Text(
+                        'Search',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                      ),
+                    ],
+                  )
                 : Column(
-                  children: [
-                    (SvgPicture.asset('navicons/search.svg', color: Colors.grey,)),
-                 const    Text('Search' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Colors.grey ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,color: Colors.white,),
-                  ],
-                ),
-            label: 'Search',
+                    children: [
+                      (SvgPicture.asset(
+                        'navicons/search.svg',
+                        color: Colors.grey,
+                      )),
+                      const Text(
+                        'Search',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 2
                 ? Column(
-                  children: [
-                    (SvgPicture.asset('navicons/Cart.svg' , color:  Theme.of(context).primaryColor,)),
-                    Text('Cart' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Theme.of(context).primaryColor ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,),
-                  ],
-                )
+                    children: [
+                      (SvgPicture.asset(
+                        'navicons/Cart.svg',
+                        color: Theme.of(context).primaryColor,
+                      )),
+                      Text(
+                        'Cart',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                      ),
+                    ],
+                  )
                 : Column(
-                  children: [
-                    (SvgPicture.asset('navicons/Cart.svg')),
-                    const Text('Cart' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Colors.grey ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,color: Colors.white,),
-                  ],
-                ),
-            label: 'Cart',
+                    children: [
+                      (SvgPicture.asset('navicons/Cart.svg')),
+                      const Text(
+                        'Cart',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: _selectedIndex == 3
-                ? Column(
-                  children: [
-                    (SvgPicture.asset('navicons/ShopWindow.svg' , color:  Theme.of(context).primaryColor,)),
-                    Text('Street Viendors' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Theme.of(context).primaryColor ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20,),
-                  ],
-                )
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    child: Column(
+                      children: [
+                        (SvgPicture.asset(
+                          'navicons/ShopWindow.svg',
+                          color: Theme.of(context).primaryColor,
+                        )),
+                        Text(
+                          'Street Viendors',
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                        SvgPicture.asset(
+                          'icons/curve.svg',
+                          width: 80,
+                          height: 20,
+                        ),
+                      ],
+                    ),
+                  )
                 : Column(
-                  children: [
-                    (SvgPicture.asset('navicons/ShopWindow.svg' , color:  Colors.grey,)),
-                   const Text('Street Viendors' , style: TextStyle( fontSize: 10 , fontWeight: FontWeight.w400 , color: Colors.grey ),),
-                    SvgPicture.asset('icons/curve.svg' , width: 80,  height: 20, color: Colors.white,),
-                  ],
-                ),
-            label: 'Street Vendors',
+                    children: [
+                      (SvgPicture.asset(
+                        'navicons/ShopWindow.svg',
+                        color: Colors.grey,
+                      )),
+                      const Text(
+                        'Street Viendors',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey),
+                      ),
+                      SvgPicture.asset(
+                        'icons/curve.svg',
+                        width: 80,
+                        height: 20,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+            label: '',
           ),
         ],
         selectedFontSize: 0,
-        unselectedFontSize: 10,
-        selectedLabelStyle: const TextStyle(fontSize: 0),
-        unselectedLabelStyle: const TextStyle(fontSize: 10),
+        unselectedFontSize: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: const Color.fromRGBO(165, 153, 153, 1),

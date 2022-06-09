@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:restroapp/screens/profileScreens/bookinghistroyscreen.dart';
 import 'package:restroapp/screens/profileScreens/favscreen.dart';
+import 'package:restroapp/screens/profileScreens/helpsupportscreen.dart';
+import 'package:restroapp/screens/profileScreens/notifications.dart';
 import 'package:restroapp/screens/profileScreens/orderhistoryscreen.dart';
 import 'package:restroapp/screens/profileScreens/profile_editscreen.dart';
+import 'package:restroapp/screens/profileScreens/savedaddress.dart';
 import 'package:restroapp/screens/settingscreen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -231,26 +234,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  SvgPicture.asset('icons/Saved.svg'),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text('Saved Address',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
-                  const Spacer(),
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: SvgPicture.asset(
-                      'icons/chevron-down.svg',
-                      color: Colors.black,
+            InkWell(
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SavedAddressScreen(),
+                  ))),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/Saved.svg'),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  )
-                ],
+                    const Text('Saved Address',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -261,29 +271,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  SvgPicture.asset('icons/bell.svg',
-                      color: Theme.of(context).primaryColor),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text('Notifications',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
-                  const Spacer(),
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: SvgPicture.asset(
-                      'icons/chevron-down.svg',
-                      color: Colors.black,
+            InkWell(
+              onTap: (() => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NotificationsScreen()),
+                  )),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/bell.svg',
+                        color: Theme.of(context).primaryColor),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  )
-                ],
+                    const Text('Notifications',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ), InkWell(
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 1,
+                color: const Color.fromRGBO(196, 196, 196, 0.3),
+              ),
+            ),
+            InkWell(
               onTap: (() => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -305,7 +331,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       quarterTurns: 3,
                       child: SvgPicture.asset(
                         'icons/chevron-down.svg',
-                        color: Colors.black,  
+                        color: Colors.black,
                       ),
                     )
                   ],
@@ -320,26 +346,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  SvgPicture.asset('icons/Help.svg'),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text('Help & Support',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
-                  const Spacer(),
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: SvgPicture.asset(
-                      'icons/chevron-down.svg',
-                      color: Colors.black,
+            InkWell(
+              onTap: (() => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HelpSupportScreen()),
+                  )),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/Help.svg'),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  )
-                ],
+                    const Text('Help & Support',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
