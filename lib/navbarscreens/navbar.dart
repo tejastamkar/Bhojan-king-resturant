@@ -4,7 +4,6 @@ import 'package:restroapp/navbarscreens/cart.dart';
 import 'package:restroapp/navbarscreens/homescreen.dart';
 import 'package:restroapp/navbarscreens/search.dart';
 import 'package:restroapp/navbarscreens/shoppingwindow.dart';
-import 'package:restroapp/widgets/clippath.dart';
 
 class NavBarScreen extends StatefulWidget {
   const NavBarScreen({Key? key}) : super(key: key);
