@@ -26,7 +26,7 @@ class _TopPurchaseScreenState extends State<TopPurchaseScreen> {
       body: SingleChildScrollView(
         physics: const ScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 5),
           child: Column(
             children: [
               ListView.builder(

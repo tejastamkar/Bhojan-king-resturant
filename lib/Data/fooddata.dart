@@ -216,3 +216,20 @@ List toppurchaseItems = [
     'category': 'Burger'
   },
 ];
+
+
+List favFood = [
+ {
+    'name': "MacDonald's",
+    'item': 'burger',
+    'image': 'assets/burgerImage.png',
+    'rate': 3.5,
+    'time': 45
+  },{
+    'name': "The Earth Plate ",
+    'item': 'burger',
+    'image': 'assets/burgerImage.png',
+    'rate': 3.5,
+    'time': 45
+  },
+];

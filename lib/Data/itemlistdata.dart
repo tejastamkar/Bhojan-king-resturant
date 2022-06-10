@@ -13,6 +13,37 @@ List picFavList = [
   {'image': 'icons/offers.png', 'name': 'Offers'},
   {'image': 'icons/pocket.png', 'name': 'Pocket Friendly'},
 ];
+
+List picFavFoodList = [ 
+{
+  'image': 'assets/burgerImage.png', 'name':'Vada pav' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'Samosa' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'Pani Puri' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'Dosa' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'Jilebi' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'Frankie' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'Falooda' 
+},
+{
+  'image': 'assets/burgerImage.png', 'name':'shawarma' 
+},
+
+
+]; 
+
+
 List offerList = [
   'assets/offer (1).png',
   'assets/offer (2).png',

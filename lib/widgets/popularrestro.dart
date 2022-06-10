@@ -31,7 +31,7 @@ class _PopularRestroState extends State<PopularRestro> {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 8 / 8.4,
+              childAspectRatio: 1/1.2,
               mainAxisSpacing: 1,
               crossAxisSpacing: 0,
               crossAxisCount: 2),
