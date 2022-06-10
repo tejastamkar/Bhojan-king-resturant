@@ -13,7 +13,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool value = false;
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -26,16 +25,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ClipRRect(
                   borderRadius:
                       const BorderRadius.vertical(bottom: Radius.circular(120)),
-                  child: Image.asset(
-                    'icons/bgLogin.png',
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
+<<<<<<< HEAD
                     height: MediaQuery.of(context).size.width / 3,
                     fit: BoxFit.cover,
+=======
+                    height: width < 440 ? width / 2 : width / 2.7,
+                    child: Image.asset(
+                      'icons/bgLogin.png',
+                      fit: BoxFit.cover,
+                    ),
+>>>>>>> db7340e (fixed login Screen)
                   )),
               Column(
                 children: [
                   SizedBox(
-                    height: height / 5,
+                    height: width / 4,
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(width / 20, 0, width / 20, 0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:restroapp/screens/loginscreen.dart';
 import 'package:restroapp/screens/profileScreens/bookinghistroyscreen.dart';
 import 'package:restroapp/screens/profileScreens/favscreen.dart';
 import 'package:restroapp/screens/profileScreens/helpsupportscreen.dart';
@@ -443,26 +444,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: const Color.fromRGBO(196, 196, 196, 0.3),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  SvgPicture.asset('icons/log-out.svg'),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text('Logout',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
-                  const Spacer(),
-                  RotatedBox(
-                    quarterTurns: 3,
-                    child: SvgPicture.asset(
-                      'icons/chevron-down.svg',
-                      color: Colors.black,
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    SvgPicture.asset('icons/log-out.svg'),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  )
-                ],
+                    const Text('Logout',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 18)),
+                    const Spacer(),
+                    RotatedBox(
+                      quarterTurns: 3,
+                      child: SvgPicture.asset(
+                        'icons/chevron-down.svg',
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(

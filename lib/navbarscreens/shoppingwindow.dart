@@ -78,30 +78,31 @@ class _StreetVendorsState extends State<StreetVendors> {
                 name: picFavFoodList[index]['name'],
                 image: picFavFoodList[index]['image'],
               ),
-            ),  const Padding(
+            ),
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: Text(
                 'Popular Street vendors around you',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
-              GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate:   SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1 /1.2,
-                    mainAxisSpacing: 0,
-                    crossAxisSpacing: 0,
-                    crossAxisCount:  width < 440 ?  2: 5),
-                itemCount: foodItem.length,
-                itemBuilder: (context, index) => BigFoodCard(
-                  name: foodItem[index]['name'],
-                  item: foodItem[index]['item'],
-                  rate: foodItem[index]['rate'],
-                  time: foodItem[index]['time'],
-                  image: foodItem[index]['image'],
-                ),
+            GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1 / 1.2,
+                  mainAxisSpacing: 0,
+                  crossAxisSpacing: 0,
+                  crossAxisCount: width < 440 ? 2 : 4),
+              itemCount: foodItem.length,
+              itemBuilder: (context, index) => BigFoodCard(
+                name: foodItem[index]['name'],
+                item: foodItem[index]['item'],
+                rate: foodItem[index]['rate'],
+                time: foodItem[index]['time'],
+                image: foodItem[index]['image'],
               ),
+            ),
           ],
         ),
       ),

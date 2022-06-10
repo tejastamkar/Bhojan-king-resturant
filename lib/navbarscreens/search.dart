@@ -92,9 +92,9 @@ class _SearchScreenState extends State<SearchScreen> {
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
-                  height:  width< 440 ?  width / 3.5 : width / 5,
+                  height: width < 440 ? width / 3.5 : width / 5,
                   aspectRatio: 16 / 9,
-                  viewportFraction: width< 440 ?  0.5 : 0.2,
+                  viewportFraction: width < 440 ? 0.5 : 0.2,
                   initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
@@ -125,11 +125,11 @@ class _SearchScreenState extends State<SearchScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1/1.2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1 / 1.2,
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
-                    crossAxisCount:  width < 440 ? 2 : 5),
+                    crossAxisCount: width < 440 ? 2 : 4),
                 itemCount: foodItem.length,
                 itemBuilder: (context, index) => BigFoodCard(
                   name: foodItem[index]['name'],
