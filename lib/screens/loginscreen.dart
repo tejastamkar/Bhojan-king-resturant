@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Image.asset(
                     'icons/bgLogin.png',
                     width: MediaQuery.of(context).size.width,
-					height: MediaQuery.of(context).size.width /3 ,
+                    height: MediaQuery.of(context).size.width / 3,
                     fit: BoxFit.cover,
                   )),
               Column(
