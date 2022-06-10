@@ -45,7 +45,6 @@ class _SettingScreenState extends State<SettingScreen> {
                       onChanged: (value) {
                         setState(() {
                           isSwitched = value;
-                          print(isSwitched);
                         });
                       },
                       activeTrackColor: Colors.lightGreenAccent,
@@ -70,7 +69,6 @@ class _SettingScreenState extends State<SettingScreen> {
                   onChanged: (value) {
                     setState(() {
                       isSwitched = value;
-                      print(isSwitched);
                     });
                   },
                   activeTrackColor: Colors.lightGreenAccent,
@@ -93,7 +91,6 @@ class _SettingScreenState extends State<SettingScreen> {
                   onChanged: (value) {
                     setState(() {
                       isSwitched = value;
-                      print(isSwitched);
                     });
                   },
                   activeTrackColor: Colors.lightGreenAccent,

@@ -31,7 +31,6 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         userProfileImagePath = imagePickedFile.path;
         checkUserProfileImagePath = false;
       });
-      print(userProfileImagePath);
     }
 
     Future bottomSheet() {
