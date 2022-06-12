@@ -123,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             InkWell(
