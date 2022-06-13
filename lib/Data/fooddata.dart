@@ -217,19 +217,32 @@ List toppurchaseItems = [
   },
 ];
 
-
 List favFood = [
- {
+  {
     'name': "MacDonald's",
     'item': 'burger',
     'image': 'assets/burgerImage.png',
     'rate': 3.5,
     'time': 45
-  },{
+  },
+  {
     'name': "The Earth Plate ",
     'item': 'burger',
     'image': 'assets/burgerImage.png',
     'rate': 3.5,
     'time': 45
   },
+];
+
+List restroPageBg = [
+  'assets/food_1.jpeg',
+  'assets/food_2.jpeg',
+  'assets/food_3.jpeg',
+];
+
+List foodmenuList = [
+  {'name': 'Burger', 'items': 20},
+  {'name': 'Whopper', 'items': 20},
+  {'name': 'Meal Combos', 'items': 20},
+  {'name': 'Desserts', 'items': 20},
 ];

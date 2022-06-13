@@ -96,6 +96,9 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
               ),
               const Spacer(),
               InkWell(
+                onTap: (() {
+                  // _selectedIndex =
+                }),
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),

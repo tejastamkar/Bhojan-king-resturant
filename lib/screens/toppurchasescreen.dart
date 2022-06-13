@@ -43,7 +43,7 @@ class _TopPurchaseScreenState extends State<TopPurchaseScreen> {
                     price: toppurchaseItems[index]['price'],
                     rate: toppurchaseItems[index]['rate'],
                     reviews: toppurchaseItems[index]['review']),
-              )
+              ),
             ],
           ),
         ),

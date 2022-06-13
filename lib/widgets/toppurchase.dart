@@ -48,28 +48,26 @@ class _TopPurchaseSecState extends State<TopPurchaseSec> {
         const SizedBox(
           height: 10,
         ),
-      SizedBox(
-        height: 130 ,
-        child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: 4,
-        itemBuilder: (context, index) => FoodCard(
-            showdecs: false,
-            type: toppurchaseItems[index]['type'],
-            name: toppurchaseItems[index]['name'],
-            image: toppurchaseItems[index]['image'],
-            decs: toppurchaseItems[index]['decs'],
-            category: toppurchaseItems[index]['category'],
-            price: toppurchaseItems[index]['price'],
-            rate: toppurchaseItems[index]['rate'],
-            reviews: toppurchaseItems[index]['review']),
-    ),
-      )
+        SizedBox(
+          height: 130,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            physics: const ScrollPhysics(),
+            itemCount: 4,
+            itemBuilder: (context, index) => FoodCard(
+                showdecs: false,
+                type: toppurchaseItems[index]['type'],
+                name: toppurchaseItems[index]['name'],
+                image: toppurchaseItems[index]['image'],
+                decs: toppurchaseItems[index]['decs'],
+                category: toppurchaseItems[index]['category'],
+                price: toppurchaseItems[index]['price'],
+                rate: toppurchaseItems[index]['rate'],
+                reviews: toppurchaseItems[index]['review']),
+          ),
+        )
       ],
     );
   }
 }
-
-

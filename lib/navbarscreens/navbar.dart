@@ -5,6 +5,8 @@ import 'package:restroapp/navbarscreens/homescreen.dart';
 import 'package:restroapp/navbarscreens/search.dart';
 import 'package:restroapp/navbarscreens/shoppingwindow.dart';
 
+int _selectedIndex = 0;
+
 class NavBarScreen extends StatefulWidget {
   const NavBarScreen({Key? key}) : super(key: key);
 
@@ -13,7 +15,6 @@ class NavBarScreen extends StatefulWidget {
 }
 
 class _NavBarScreenState extends State<NavBarScreen> {
-  int _selectedIndex = 0;
   String appBarTitle = 'Home';
   final screens = [
     const HomeScreen(),

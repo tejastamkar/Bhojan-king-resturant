@@ -27,97 +27,103 @@ class FoodCard extends StatefulWidget {
 class _FoodCardState extends State<FoodCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10.0),
-                        bottomLeft: Radius.circular(10.0)),
+    double width = MediaQuery.of(context).size.width;
+    return SizedBox(
+      height: 131,
+      width: width < 440 ? width : width / 2,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Stack(
+              alignment: Alignment.topRight,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(10.0)),
 
-                    // width: 100,
-                    // height: 120,
-                    child: Image.asset(
-                      widget.image,
-                      fit: BoxFit.cover,
-                    ),
+                  // width: 100,
+                  // height: 120,
+                  child: Image.asset(
+                    widget.image,
+                    fit: BoxFit.cover,
                   ),
-                  foodTag(type: widget.type)
-                ],
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.name,
+                ),
+                foodTag(type: widget.type)
+              ],
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.name,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  width: 180,
+                  child: Text(
+                    widget.showdecs ? widget.decs : widget.category,
                     style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w600),
+                        fontSize: 10, fontWeight: FontWeight.w300),
                   ),
-                  SizedBox(
-                    width: 180,
-                    child: Text(
-                      widget.showdecs ? widget.decs : widget.category,
+                ),
+                Row(
+                  children: [
+                    RatingBarIndicator(
+                      rating: widget.rate,
+                      itemCount: 5,
+                      itemSize: 15,
+                      itemBuilder: (context, index) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      '(${widget.reviews})',
                       style: const TextStyle(
-                          fontSize: 10, fontWeight: FontWeight.w300),
+                          fontSize: 10, fontWeight: FontWeight.w400),
                     ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 7),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 5,
+                    height: 1,
+                    color: Colors.black,
                   ),
-                  Row(
-                    children: [
-                      RatingBarIndicator(
-                        rating: widget.rate,
-                        itemCount: 5,
-                        itemSize: 15,
-                        itemBuilder: (context, index) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '(${widget.reviews})',
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("₹${widget.price}",
                         style: const TextStyle(
-                            fontSize: 10, fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 7),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / 5,
-                      height: 1,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("₹${widget.price}",
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600)),
-                    ],
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ElevatedButton(
+                            fontSize: 16, fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ],
+            ),
+            const Spacer(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
+                  child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         primary: Theme.of(context).primaryColor,
@@ -125,11 +131,11 @@ class _FoodCardState extends State<FoodCard> {
                         padding: const EdgeInsets.all(5)),
                     child: const Text('ADD'),
                   ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

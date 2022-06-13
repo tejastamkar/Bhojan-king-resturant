@@ -6,6 +6,7 @@ import 'package:restroapp/Data/fooddata.dart';
 import 'package:restroapp/Data/itemlistdata.dart';
 import 'package:restroapp/screens/profilescreen.dart';
 import 'package:restroapp/widgets/bigfoodcards.dart';
+import 'package:restroapp/widgets/filtersheet.dart';
 import 'package:restroapp/widgets/flitre.dart';
 import 'package:restroapp/widgets/topcategory.dart';
 import 'package:restroapp/widgets/toppurchase.dart';
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    Orientation orientation = MediaQuery.of(context).orientation;
     // final GlobalKey<ScaffoldState> _key = GlobalKey();
 
     return Scaffold(
@@ -59,17 +61,14 @@ class _HomeScreenState extends State<HomeScreen> {
           DropdownButton(
             value: dropdownvalue,
             alignment: AlignmentDirectional.center,
-
             icon: const Icon(Icons.keyboard_arrow_down),
             underline: const SizedBox(),
-         
             items: items.map((String items) {
               return DropdownMenuItem(
                 value: items,
                 child: Text(items),
               );
             }).toList(),
-            
             onChanged: (String? newValue) {
               setState(() {
                 dropdownvalue = newValue!;
@@ -79,11 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
             child: InkWell(
-              onTap: (() =>  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (contect) =>
-                                              const ProfileScreen()))),
+              onTap: (() => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (contect) => const ProfileScreen()))),
               child: ClipOval(
                 // borderRadius: BorderRadius.circular(20),
                 child: Image.network(
@@ -116,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                     child: CarouselSlider(
                       options: CarouselOptions(
-                          height: width <440 ?  height /5:height/3,
+                          height: width < 440 ? height / 5 : height / 3,
                           aspectRatio: 16 / 9,
                           viewportFraction: 1,
                           initialPage: 0,
@@ -137,7 +135,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           builder: (BuildContext context) {
                             return ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
-                                child: Image.asset(i , fit: BoxFit.contain, width:  width,));
+                                child: Image.asset(
+                                  i,
+                                  fit: BoxFit.contain,
+                                  width: width,
+                                ));
                           },
                         );
                       }).toList(),
@@ -171,11 +173,15 @@ class _HomeScreenState extends State<HomeScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate:   SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1 /1.2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1 / 1.2,
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
-                    crossAxisCount:  width < 440 ?  2: 5),
+                    crossAxisCount: width < 440
+                        ? 2
+                        : orientation == Orientation.landscape
+                            ? 5
+                            : 4),
                 itemCount: foodItem.length,
                 itemBuilder: (context, index) => BigFoodCard(
                   name: foodItem[index]['name'],

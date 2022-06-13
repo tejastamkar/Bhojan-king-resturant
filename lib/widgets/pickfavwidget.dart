@@ -11,16 +11,16 @@ class PickFavWidget extends StatefulWidget {
 class _PickFavWidgetState extends State<PickFavWidget> {
   @override
   Widget build(BuildContext context) {
-        double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
 
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: width < 440 ?1/1.5 : 1/1 ,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: width < 440 ? 1 / 1.5 : 1 / 1,
           mainAxisSpacing: 0,
           crossAxisSpacing: 0.5,
-          crossAxisCount: width < 440 ?4: 7),
+          crossAxisCount: width < 440 ? 4 : 6),
       itemCount: picFavList.length,
       itemBuilder: (context, index) => pickFav(
         name: picFavList[index]['name'],
@@ -34,8 +34,12 @@ Widget pickFav({required String image, required String name}) => Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ClipOval(
-          
-          child: Image.asset(image , fit: BoxFit.fill, width:  80 , height: 80,)),
+            child: Image.asset(
+          image,
+          fit: BoxFit.fill,
+          width: 80,
+          height: 80,
+        )),
         Text(
           name,
           textAlign: TextAlign.center,

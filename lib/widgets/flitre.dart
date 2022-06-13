@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restroapp/widgets/filtersheet.dart';
 
 List itemList = ['Veg', 'Non-veg', 'Nearest', 'Top Rated', 'More+'];
 
@@ -12,12 +13,17 @@ class FliterSelector extends StatefulWidget {
 class _FliterSelectorState extends State<FliterSelector> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: itemList.length,
-        itemBuilder: (context, index) => selector(name: itemList[index]));
+    return Row(
+      children: [
+        selector(name: 'Veg'),
+        selector(name: 'Non-veg'),
+        selector(name: 'Nearest'),
+        selector(name: 'Top Rated'),
+        InkWell(
+            onTap: (() => filterSheet(context)),
+            child: selector(name: 'More+')),
+      ],
+    );
   }
 }
 
@@ -25,9 +31,8 @@ Widget selector({required String name}) {
   return Card(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     child: Container(
-         height: 46,
+      height: 46,
       decoration: BoxDecoration(
-     
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           width: 0.5,

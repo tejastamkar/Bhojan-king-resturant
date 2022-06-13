@@ -18,6 +18,8 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    Orientation orientation = MediaQuery.of(context).orientation;
+
     return Scaffold(
       appBar: AppBar(
         // elevation: 0,
@@ -44,15 +46,18 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                 ),
               ),
               SizedBox(
-                height: width< 440 ? width / 3: width / 7,
+                height: width < 440 ? width / 3 : width / 6,
                 child: ListView.builder(
                     physics: const ScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: brandList.length,
-                    itemBuilder: (context, index) => BrandWidget(
-                        image: brandList[index]['image'],
-                        name: brandList[index]['name'])),
+                    itemBuilder: (context, index) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: BrandWidget(
+                              image: brandList[index]['image'],
+                              name: brandList[index]['name']),
+                        )),
               ),
               const Padding(
                 padding: EdgeInsets.all(8.0),
@@ -64,9 +69,9 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
-                  height:  width <440 ? width / 3: width/5,
+                  height: width < 440 ? width / 3 : width / 5,
                   aspectRatio: 16 / 9,
-                  viewportFraction: width <440 ?0.8: 0.4,
+                  viewportFraction: width < 440 ? 0.8 : 0.4,
                   initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
@@ -80,7 +85,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                     builder: (BuildContext context) {
                       return Image.asset(
                         i,
-                        height: width <440 ? 100: 140,
+                        height: width < 440 ? 100 : 140,
                         fit: BoxFit.fill,
                       );
                     },
@@ -109,11 +114,15 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio:  1 /1.2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1 / 1.2,
                     mainAxisSpacing: 1,
                     crossAxisSpacing: 0,
-                    crossAxisCount:  width < 440 ?  2: 5),
+                    crossAxisCount: width < 440
+                        ? 2
+                        : orientation == Orientation.landscape
+                            ? 5
+                            : 4),
                 itemCount: foodItem.length,
                 itemBuilder: (context, index) => BigFoodCard(
                   name: foodItem[index]['name'],
