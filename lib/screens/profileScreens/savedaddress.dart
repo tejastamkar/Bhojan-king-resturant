@@ -106,12 +106,7 @@ Widget addressCard(
         alignment: Alignment.centerLeft,
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-              20,
-              0,
-              0,
-              0,
-            ),
+            padding: const EdgeInsets.only(left: 20),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),

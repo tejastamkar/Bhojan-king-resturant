@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restroapp/screens/deliveryscreen.dart';
 import 'package:restroapp/screens/diningscreen.dart';
+import 'package:restroapp/screens/orderscreen.dart';
 
 class ExploreServiceWidget extends StatefulWidget {
   const ExploreServiceWidget({Key? key}) : super(key: key);
@@ -97,7 +98,12 @@ class _ExploreServiceWidgetState extends State<ExploreServiceWidget> {
               const Spacer(),
               InkWell(
                 onTap: (() {
-                  // _selectedIndex =
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (contect) => const OrderScreen(
+                                hotelName: 'Thai town',
+                              )));
                 }),
                 child: Card(
                   shape: RoundedRectangleBorder(

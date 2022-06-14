@@ -34,7 +34,7 @@ class _TopPurchaseScreenState extends State<TopPurchaseScreen> {
                 shrinkWrap: true,
                 itemCount: toppurchaseItems.length,
                 itemBuilder: (context, index) => FoodCard(
-                    showdecs: true,
+                    showdecs: false,
                     type: toppurchaseItems[index]['type'],
                     name: toppurchaseItems[index]['name'],
                     image: toppurchaseItems[index]['image'],
