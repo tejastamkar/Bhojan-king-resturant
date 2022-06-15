@@ -128,19 +128,21 @@ Widget addressCard(
               ),
             ),
           ),
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(40)),
-            child: Center(
-              child: SvgPicture.asset(
-                icon,
-                color: Colors.white,
+          Builder(builder: (context) {
+            return Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.circular(40)),
+              child: Center(
+                child: SvgPicture.asset(
+                  icon,
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );
