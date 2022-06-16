@@ -24,7 +24,7 @@ class _AddressPopState extends State<AddressPop> {
       ),
       child: SingleChildScrollView(
         child: Container(
-          height: height - 80,
+          height: height - 150,
           decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(24.0))),
