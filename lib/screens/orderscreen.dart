@@ -26,6 +26,9 @@ class _OrderScreenState extends State<OrderScreen> {
       BuildContext context,
     ) {
       return showModalBottomSheet(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24.0))),
+          isScrollControlled: true,
           context: context,
           builder: (context) {
             return const AddressPop();
@@ -70,6 +73,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Delivery to ${userAddress[0]['which']}',
