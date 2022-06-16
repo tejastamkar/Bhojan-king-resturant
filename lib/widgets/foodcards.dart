@@ -28,8 +28,6 @@ class _FoodCardState extends State<FoodCard> {
   int counter = 0;
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     if (!widget.showdecs) {
       return Card(
         shape: RoundedRectangleBorder(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:restroapp/Data/userdata.dart';
+import 'package:restroapp/widgets/bottomaddresspopup.dart';
 import 'package:restroapp/widgets/orderfoodcard.dart';
 
 enum AddressType { home, work, other }
@@ -16,81 +17,19 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   num subtotal = getSubtotal();
   num tax = 70, deliveryFee = 40;
+  bool show = false;
   AddressType selectedAddress = AddressType.home;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    Future adddressPop() {
+    Future adddressPop(
+      BuildContext context,
+    ) {
       return showModalBottomSheet(
-        context: context,
-        builder: (context) => Column(
-          children: [
-            const Text(
-              'Delivery Address',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-            ),
-            Container(
-              width: width,
-              height: 1,
-              color: Colors.grey.shade200,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Radio(
-                  groupValue: AddressType.home,
-                  value: selectedAddress,
-                  onChanged: (value) {
-                    setState(
-                      () {
-                        selectedAddress = value as AddressType;
-                      },
-                    );
-                  },
-                ),
-                const Text('Home'),
-                Radio(
-                  groupValue: AddressType.home,
-                  value: selectedAddress,
-                  onChanged: (value) {
-                    setState(
-                      () {
-                        selectedAddress = value as AddressType;
-                      },
-                    );
-                  },
-                ),
-                const Text('Work'),
-                Radio(
-                  groupValue: AddressType.home,
-                  value: selectedAddress,
-                  onChanged: (value) {
-                    setState(
-                      () {
-                        selectedAddress = value as AddressType;
-                      },
-                    );
-                  },
-                ),
-                const Text('Other'),
-              ],
-            ),
-            Card(
-              child: Column(
-                children: [
-                  const Text(
-                    'Flat no/Room no',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(30, 26, 26, 0.6)),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      );
+          context: context,
+          builder: (context) {
+            return const AddressPop();
+          });
     }
 
     Widget address() => Padding(
@@ -105,7 +44,9 @@ class _OrderScreenState extends State<OrderScreen> {
                   ),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      adddressPop(context);
+                    },
                     child: Text(
                       'Edit',
                       style: TextStyle(
