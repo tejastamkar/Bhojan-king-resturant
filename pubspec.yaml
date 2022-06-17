@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^8.0.9
   dotted_border: ^2.0.0+2
   expandable: ^5.0.1
+  sliding_up_panel: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:

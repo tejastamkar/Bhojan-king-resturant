@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restroapp/Data/itemlistdata.dart';
 import 'package:restroapp/screens/ordersummary.dart';
+import 'package:restroapp/screens/ridermapscreen.dart';
 
 class OrderList extends StatefulWidget {
   const OrderList({
@@ -26,6 +27,7 @@ class _OrderListState extends State<OrderList> {
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
                 return PendingOrder(
+                  index: index,
                   riderImage: orderList[index]['rider_image'],
                   riderName: orderList[index]['rider_name'],
                   time: orderList[index]['time'],
@@ -62,9 +64,10 @@ class _OrderListState extends State<OrderList> {
 
 class PendingOrder extends StatefulWidget {
   final String time, riderName, riderImage, date;
-  final int itemNo, price, riderNumber, orderNo;
+  final int itemNo, price, riderNumber, orderNo, index;
   const PendingOrder({
     Key? key,
+    required this.index,
     required this.time,
     required this.riderImage,
     required this.riderName,
@@ -82,87 +85,103 @@ class PendingOrder extends StatefulWidget {
 class _PendingOrderState extends State<PendingOrder> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Order #${widget.orderNo}',
-                      style: const TextStyle(
-                          fontSize: 12, fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                        '${widget.time} | ${widget.itemNo} Items, ₹${widget.price}',
+    return InkWell(
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => RiderMapScreen(
+                    review: 4,
+                    riderName: widget.riderName,
+                    riderImage: widget.riderImage,
+                    index: widget.index,
+                    time: 13,
+                    restroAdress: "70,Virwami industrial Eastate",
+                    restroPlace: "FreshMenu",
+                    deliveryAddress: "Raheja height",
+                    deliveryPlace: "Home",
+                  ))),
+      child: Card(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Order #${widget.orderNo}',
                         style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(0, 0, 0, 0.58))),
-                  ],
-                ),
-                const Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'View more',
-                    style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        decoration: TextDecoration.underline),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Image.asset('assets/maps.png'),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Row(
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    const Text('Order Confirmed',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w600)),
-                    SizedBox(
-                      width: 200,
-                      child: Text(
-                        '${widget.riderName} is on his way to the Resturant to pick up your order',
-                        style: const TextStyle(
-                            fontSize: 10, fontWeight: FontWeight.w400),
+                            fontSize: 12, fontWeight: FontWeight.w600),
                       ),
-                    )
-                  ],
-                ),
-                const Spacer(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(widget.riderImage,
-                      width: 35, height: 35, fit: BoxFit.fill),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  width: 2,
-                  height: 30,
-                  color: Colors.grey,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                SvgPicture.asset('icons/Telephone.svg')
-              ],
+                      Text(
+                          '${widget.time} | ${widget.itemNo} Items, ₹${widget.price}',
+                          style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(0, 0, 0, 0.58))),
+                    ],
+                  ),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'View more',
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          decoration: TextDecoration.underline),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+            Image.asset('assets/maps.png'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: Row(
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Text('Order Confirmed',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w600)),
+                      SizedBox(
+                        width: 200,
+                        child: Text(
+                          '${widget.riderName} is on his way to the Resturant to pick up your order',
+                          style: const TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.w400),
+                        ),
+                      )
+                    ],
+                  ),
+                  const Spacer(),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(widget.riderImage,
+                        width: 35, height: 35, fit: BoxFit.fill),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    width: 2,
+                    height: 30,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  SvgPicture.asset('icons/Telephone.svg')
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
