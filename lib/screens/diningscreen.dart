@@ -39,14 +39,15 @@ class _DiningScreenState extends State<DiningScreen> {
             ),
             Center(
               child: SizedBox(
-                height: width / 3.5,
+                height: width < 440 ? width / 3.5 : width / 5.5,
                 child: ListView.builder(
                     physics: const ScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: favRestroList.length,
                     itemBuilder: (context, index) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width < 400 ? 5 : 40),
                           child: FavRestroWidget(
                               image: favRestroList[index]['image'],
                               name: favRestroList[index]['title']),

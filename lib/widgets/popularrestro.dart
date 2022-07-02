@@ -13,6 +13,8 @@ class PopularRestro extends StatefulWidget {
 class _PopularRestroState extends State<PopularRestro> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    Orientation orientation = MediaQuery.of(context).orientation;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,17 +32,24 @@ class _PopularRestroState extends State<PopularRestro> {
         GridView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1/1.2,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 1 / 1.2,
               mainAxisSpacing: 1,
               crossAxisSpacing: 0,
-              crossAxisCount: 2),
+              crossAxisCount: width < 440
+                  ? 2
+                  : orientation == Orientation.landscape
+                      ? 5
+                      : 4),
           itemCount: restroCardList.length,
-          itemBuilder: (context, index) => RestroCardWidget(
-            name: restroCardList[index]['name'],
-            place: restroCardList[index]['place'],
-            rate: restroCardList[index]['rate'].toDouble(),
-            image: restroCardList[index]['image'],
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: RestroCardWidget(
+              name: restroCardList[index]['name'],
+              place: restroCardList[index]['place'],
+              rate: restroCardList[index]['rate'].toDouble(),
+              image: restroCardList[index]['image'],
+            ),
           ),
         ),
       ],

@@ -14,6 +14,8 @@ void main() {
           textTheme: const TextTheme(
             headline1: TextStyle(color: Colors.black),
           ),
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: const Color.fromRGBO(179, 19, 64, 1)),
         ),
         home: const LoginScreen()),
   );

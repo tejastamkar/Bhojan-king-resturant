@@ -32,13 +32,11 @@ class RiderMapScreen extends StatefulWidget {
 }
 
 class _RiderMapScreenState extends State<RiderMapScreen> {
-  bool Open = false;
+  bool open = false;
   @override
   Widget build(BuildContext context) {
     final List orderdetails = doneOrderList[widget.index]['order'];
-    final List restroAddrees = doneOrderList[widget.index]['restro_address'];
-    final List deliveryAddress =
-        doneOrderList[widget.index]['delivery_address'];
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -50,8 +48,8 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(widget.riderImage,
-                  width: Open ? 60 : 35,
-                  height: Open ? 60 : 35,
+                  width: open ? 60 : 35,
+                  height: open ? 60 : 35,
                   fit: BoxFit.fill),
             ),
             const SizedBox(
@@ -59,7 +57,7 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
             ),
             SizedBox(
               width: 200,
-              height: Open ? 60 : 30,
+              height: open ? 60 : 30,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -68,7 +66,7 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
                     style: const TextStyle(
                         fontSize: 10, fontWeight: FontWeight.w400),
                   ),
-                  Open
+                  open
                       ? Container(
                           width: 40,
                           height: 25,
@@ -87,7 +85,7 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
                                 const Spacer(),
                                 Text(
                                   '${widget.review}.0',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white),
@@ -113,12 +111,12 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
           SlidingUpPanel(
             onPanelOpened: () {
               setState(() {
-                Open = true;
+                open = true;
               });
             },
             onPanelClosed: () {
               setState(() {
-                Open = false;
+                open = false;
               });
             },
             minHeight: height / 3,
