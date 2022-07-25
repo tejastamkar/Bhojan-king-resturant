@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: null,
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
@@ -49,18 +50,37 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               width: 10,
             ),
-            Text(location),
-            const SizedBox(
-              width: 10,
+            DropdownButton(
+              iconEnabledColor: Theme.of(context).primaryColor,
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+              value: location,
+              alignment: AlignmentDirectional.center,
+              icon: const Icon(Icons.keyboard_arrow_down),
+              underline: const SizedBox(),
+              items: locationList.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  location = newValue!;
+                });
+              },
             ),
-            SvgPicture.asset('icons/chevron-down.svg')
           ],
         ),
         actions: [
           DropdownButton(
             value: dropdownvalue,
             alignment: AlignmentDirectional.center,
-            icon: const Icon(Icons.keyboard_arrow_down),
+            icon: const Icon(
+              Icons.keyboard_arrow_down,
+            ),
             underline: const SizedBox(),
             items: items.map((String items) {
               return DropdownMenuItem(
@@ -113,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                     child: CarouselSlider(
                       options: CarouselOptions(
-                          height: width < 440 ? height / 5 : height / 3,
+                          height: width < 441 ? height / 5 : height / 3,
                           aspectRatio: 16 / 9,
                           viewportFraction: 1,
                           initialPage: 0,
@@ -176,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     childAspectRatio: 1 / 1.2,
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
-                    crossAxisCount: width < 440
+                    crossAxisCount: width < 441
                         ? 2
                         : orientation == Orientation.landscape
                             ? 5

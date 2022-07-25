@@ -3,7 +3,7 @@ var items = [
   'Fn',
   'Hi',
 ];
-
+var locationList = ["Home", "Work", "Other"];
 List picFavList = [
   {'image': 'icons/desserts.png', 'name': 'Desserts'},
   {'image': 'icons/drinks.png', 'name': 'Drinks'},
@@ -14,35 +14,16 @@ List picFavList = [
   {'image': 'icons/pocket.png', 'name': 'Pocket Friendly'},
 ];
 
-List picFavFoodList = [ 
-{
-  'image': 'assets/burgerImage.png', 'name':'Vada pav' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'Samosa' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'Pani Puri' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'Dosa' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'Jilebi' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'Frankie' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'Falooda' 
-},
-{
-  'image': 'assets/burgerImage.png', 'name':'shawarma' 
-},
-
-
-]; 
-
+List picFavFoodList = [
+  {'image': 'assets/burgerImage.png', 'name': 'Vada pav'},
+  {'image': 'assets/burgerImage.png', 'name': 'Samosa'},
+  {'image': 'assets/burgerImage.png', 'name': 'Pani Puri'},
+  {'image': 'assets/burgerImage.png', 'name': 'Dosa'},
+  {'image': 'assets/burgerImage.png', 'name': 'Jilebi'},
+  {'image': 'assets/burgerImage.png', 'name': 'Frankie'},
+  {'image': 'assets/burgerImage.png', 'name': 'Falooda'},
+  {'image': 'assets/burgerImage.png', 'name': 'shawarma'},
+];
 
 List offerList = [
   'assets/offer (1).png',

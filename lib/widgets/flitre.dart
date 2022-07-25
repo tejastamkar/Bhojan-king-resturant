@@ -13,16 +13,21 @@ class FliterSelector extends StatefulWidget {
 class _FliterSelectorState extends State<FliterSelector> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        selector(name: 'Veg'),
-        selector(name: 'Non-veg'),
-        selector(name: 'Nearest'),
-        selector(name: 'Top Rated'),
-        InkWell(
-            onTap: (() => filterSheet(context)),
-            child: selector(name: 'More+')),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          selector(name: 'Veg'),
+          selector(name: 'Non-veg'),
+          selector(name: 'Nearest'),
+          selector(name: 'Top Rated'),
+          InkWell(
+              onTap: (() => showBottomSheet(
+                  context: context,
+                  builder: ((context) => const FliterSheet()))),
+              child: selector(name: 'More+')),
+        ],
+      ),
     );
   }
 }

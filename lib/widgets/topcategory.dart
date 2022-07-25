@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restroapp/screens/fooditemscreen.dart';
 
 List category = [
   {'name': "Burger", 'image': "assets/burger.png"},
@@ -28,7 +29,7 @@ class _TopCategorySecState extends State<TopCategorySec> {
           children: [
             Image.asset(
               image,
-              width: width < 440 ? 60 : 120,
+              width: width < 441 ? 60 : 120,
               fit: BoxFit.fill,
             ),
             Text(name,
@@ -50,18 +51,26 @@ class _TopCategorySecState extends State<TopCategorySec> {
           height: 10,
         ),
         SizedBox(
-          height: width < 440 ? width / 2 : width / 3,
+          height: width < 441 ? width / 2 : width / 3,
           child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 1,
-                  crossAxisCount: width < 440 ? 4 : 5),
+                  crossAxisCount: width < 441 ? 4 : 5),
               itemCount: category.length,
-              itemBuilder: (context, index) => categoryCards(
-                  name: category[index]['name'],
-                  image: category[index]['image'])),
+              itemBuilder: (context, index) => InkWell(
+                    onTap: (() => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FoodItemScreen(
+                                title: category[index]['name'],
+                                image: category[index]['image'])))),
+                    child: categoryCards(
+                        name: category[index]['name'],
+                        image: category[index]['image']),
+                  )),
         ),
       ],
     );

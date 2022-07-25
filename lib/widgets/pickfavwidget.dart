@@ -17,10 +17,10 @@ class _PickFavWidgetState extends State<PickFavWidget> {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: width < 440 ? 1 / 1.5 : 1 / 1,
+          childAspectRatio: width < 441 ? 1 / 1.5 : 1 / 1,
           mainAxisSpacing: 0,
           crossAxisSpacing: 0.5,
-          crossAxisCount: width < 440 ? 4 : 6),
+          crossAxisCount: width < 441 ? 4 : 6),
       itemCount: picFavList.length,
       itemBuilder: (context, index) => pickFav(
         name: picFavList[index]['name'],

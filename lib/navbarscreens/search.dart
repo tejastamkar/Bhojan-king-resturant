@@ -2,8 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restroapp/Data/fooddata.dart';
+import 'package:restroapp/Data/itemlistdata.dart';
 import 'package:restroapp/widgets/bigfoodcards.dart';
 import 'package:restroapp/widgets/exploreservice.dart';
+import 'package:restroapp/widgets/filtersheet.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -27,13 +29,30 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             SvgPicture.asset('icons/map-pin.svg'),
             const SizedBox(
-              width: 5,
+              width: 10,
             ),
-            Text(location),
-            const SizedBox(
-              width: 5,
+            DropdownButton(
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+              iconEnabledColor: Theme.of(context).primaryColor,
+              value: location,
+              alignment: AlignmentDirectional.center,
+              icon: const Icon(Icons.keyboard_arrow_down),
+              underline: const SizedBox(),
+              items: locationList.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  location = newValue!;
+                });
+              },
             ),
-            SvgPicture.asset('icons/chevron-down.svg')
           ],
         ),
       ),
@@ -74,14 +93,19 @@ class _SearchScreenState extends State<SearchScreen> {
                   const SizedBox(
                     width: 10,
                   ),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: SvgPicture.asset(
-                        'icons/sliders.svg',
-                        width: 20,
+                  InkWell(
+                    onTap: (() => showBottomSheet(
+                        context: context,
+                        builder: ((context) => const FliterSheet()))),
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: SvgPicture.asset(
+                          'icons/sliders.svg',
+                          width: 20,
+                        ),
                       ),
                     ),
                   )
@@ -93,9 +117,9 @@ class _SearchScreenState extends State<SearchScreen> {
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
-                  height: width < 440 ? width / 3.5 : width / 5,
+                  height: width < 441 ? width / 3.5 : width / 5,
                   aspectRatio: 16 / 9,
-                  viewportFraction: width < 440 ? 0.5 : 0.2,
+                  viewportFraction: width < 441 ? 0.5 : 0.2,
                   initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
@@ -130,7 +154,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     childAspectRatio: 1 / 1.2,
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
-                    crossAxisCount: width < 440
+                    crossAxisCount: width < 441
                         ? 2
                         : orientation == Orientation.landscape
                             ? 5

@@ -15,7 +15,7 @@ class NavBarScreen extends StatefulWidget {
 }
 
 class _NavBarScreenState extends State<NavBarScreen> {
-  String appBarTitle = 'Home';
+  // String appBarTitle = 'Home';
   final screens = [
     const HomeScreen(),
     const SearchScreen(),

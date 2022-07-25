@@ -1,5 +1,3 @@
-import 'package:carousel_indicator/carousel_indicator.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +27,6 @@ class _RestroScreenState extends State<RestroScreen> {
   int current = 0;
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     Dialog menuDialogBox = Dialog(
       backgroundColor: Colors.white,
       child: ListView.builder(
@@ -40,7 +36,6 @@ class _RestroScreenState extends State<RestroScreen> {
           itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  // crossAxisAlignment:,
                   children: [
                     Text(foodmenuList[index]['name']),
                     const Spacer(),
@@ -152,72 +147,34 @@ class _RestroScreenState extends State<RestroScreen> {
           child: Column(
             children: [
               Stack(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.bottomCenter,
                 children: [
-                  CarouselSlider(
-                    options: CarouselOptions(
-                        height: width < 440 ? width / 2 : width / 3,
-                        aspectRatio: 1 / 1,
-                        viewportFraction: 1,
-                        initialPage: 0,
-                        autoPlay: true,
-                        autoPlayInterval: const Duration(seconds: 10),
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 1000),
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        enlargeCenterPage: true,
-                        scrollDirection: Axis.horizontal,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            current = index;
-                          });
-                        }),
-                    items: restroPageBg.map((i) {
-                      return Builder(
-                        builder: (BuildContext context) {
-                          return Image.asset(
-                            i,
-                            scale: 1 / 1,
-                            fit: BoxFit.cover,
-                            width: width,
-                          );
-                        },
-                      );
-                    }).toList(),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    child: InkWell(
-                      onTap: () => Navigator.pop(context),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: Colors.white),
-                        child: const Padding(
-                          padding: EdgeInsets.fromLTRB(8, 5, 0, 5),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.black,
+                  Stack(
+                    alignment: Alignment.topLeft,
+                    children: [
+                      Image.asset("assets/food_1.jpeg"),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                        child: InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                color: Colors.white),
+                            child: const Padding(
+                              padding: EdgeInsets.fromLTRB(8, 5, 0, 5),
+                              child: Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.black,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: CarouselIndicator(
-                  height: 10,
-                  width: 10,
-                  // animationDuration: 100,
-                  cornerRadius: 10,
-                  color: const Color.fromARGB(250, 255, 255, 255),
-                  activeColor: Theme.of(context).primaryColor,
-                  count: restroPageBg.length,
-                  index: current,
-                ),
               ),
               displayCard(),
               Padding(
@@ -229,32 +186,20 @@ class _RestroScreenState extends State<RestroScreen> {
                     padding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 20),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           height: 20,
                           width: 20,
                           color: Colors.grey.shade200,
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
                         const Text('Veg'),
-                        const SizedBox(
-                          width: 40,
-                        ),
                         Container(
                           height: 20,
                           width: 20,
                           color: Colors.grey.shade200,
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Text('Veg'),
-                        const SizedBox(
-                          width: 20,
-                        ),
+                        const Text('Non-Veg'),
                         TextButton(
                             style: ButtonStyle(
                                 foregroundColor: MaterialStateProperty.all(

@@ -93,7 +93,7 @@ class _HotelDetialsScreenState extends State<HotelDetialsScreen> {
                               ],
                             ),
                             SizedBox(
-                              width: width < 440 ? width / 2.6 : width / 1.5,
+                              width: width < 441 ? width / 2.6 : width / 1.5,
                             ),
                             Text(
                               date,
@@ -103,7 +103,7 @@ class _HotelDetialsScreenState extends State<HotelDetialsScreen> {
                           ],
                         ),
                         SizedBox(
-                          width: 300,
+                          width: width - 100,
                           child: Text(
                             review,
                             style: const TextStyle(
@@ -208,7 +208,7 @@ class _HotelDetialsScreenState extends State<HotelDetialsScreen> {
                                 color: Theme.of(context).primaryColor)),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: width < 440 ? 15 : 25),
+                              horizontal: 20, vertical: width < 441 ? 15 : 25),
                           child: Row(
                             children: [
                               Text(
@@ -253,7 +253,7 @@ class _HotelDetialsScreenState extends State<HotelDetialsScreen> {
                                 color: Theme.of(context).primaryColor)),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: width < 440 ? 15 : 25),
+                              horizontal: 20, vertical: width < 441 ? 15 : 25),
                           child: Row(
                             children: [
                               Text(
@@ -285,7 +285,7 @@ class _HotelDetialsScreenState extends State<HotelDetialsScreen> {
                                 color: Theme.of(context).primaryColor)),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: width < 440 ? 15 : 25),
+                              horizontal: 20, vertical: width < 441 ? 15 : 25),
                           child: Row(
                             children: [
                               Text(
@@ -323,7 +323,7 @@ class _HotelDetialsScreenState extends State<HotelDetialsScreen> {
                 children: [
                   CarouselSlider(
                     options: CarouselOptions(
-                        height: width < 440 ? width / 2 : width / 3,
+                        height: width < 441 ? width / 2 : width / 3,
                         aspectRatio: 1 / 1,
                         viewportFraction: 1,
                         initialPage: 0,

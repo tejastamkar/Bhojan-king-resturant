@@ -46,6 +46,7 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   syncfusion_flutter_datepicker: ^20.1.60
   day_night_time_picker: ^1.0.5
+  group_radio_button: ^1.2.0
 
 dev_dependencies:
   flutter_test:

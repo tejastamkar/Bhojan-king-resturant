@@ -1,0 +1,226 @@
+============
+ads List
+============
+[ 
+    { 
+        "BannerID": 1,
+        "BannerImage": "imageUrl", 
+        "BannerTitle":"Some Tile",
+        "Order":1, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+    { 
+        "BannerID": 2,
+        "BannerImage": "imageUrl", 
+        "BannerTitle":"Some Tile",
+        "Order":2, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    }
+]
+
+=============
+foodItem
+=============
+[ 
+    { 
+        "ItemID"1
+        "Name":"foodName",
+        "ItemType":"Burger",
+        "FoodImage": "imageUrl",
+        "type": "Veg",
+        "rate":2.3, 
+        "time": 45, 
+        "decription":"2 Crispy Veg Double Patty+ 1 King Peri Peri Fries + 1 Veggie Strips + 2 Pepsi (M)",
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+        "top PurchesItems":true,
+     
+    },
+    {   
+        "ItemID": 2
+        "Name":"foodName",
+        "ItemType":"Burger",
+        "FoodImage": "imageUrl",
+        "rate":2.3, 
+        "time": 45, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+        "top PurchesItems":false,
+    },
+
+]
+
+
+==============
+Top Offers 
+==============
+[ 
+    { 
+        "BannerID": 1,
+        "BannerImage": "imageUrl", 
+        "BannerTitle":"Some Tile",
+        "Order":1, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+    { 
+        "BannerID": 2,
+        "BannerImage": "imageUrl", 
+        "BannerTitle":"Some Tile",
+        "Order":2, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+
+]
+
+=================
+picFavFoodList 
+=================
+[ 
+     { 
+        "ItemID": 1 , 
+        "ItemImage": "imageUrl", 
+        "Order":1, 
+        "ItemTitle": "ItemName", 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+     },
+     { 
+        "ItemID": 1 , 
+        "ItemImage": "imageUrl", 
+        "Order":1, 
+        "ItemTitle": "ItemName", 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+     },
+]
+
+
+=========
+brandList 
+=========
+
+[
+    { 
+        "BrandID": 1, 
+        "BrandName": "BrandName", 
+        "Order":1, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+    { 
+        "BrandID": 2, 
+        "BrandName": "BrandName", 
+        "Order":2, 
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+]
+
+===========
+UserData 
+===========
+[ 
+    { 
+        "UserID": "userID", 
+        "UserName": "name", 
+        "UserEmail": "email",
+        "UserPhoneNo": "phonenumber", 
+        "UserOrders": "all the Order ID"
+        "UsercurrentOrder": "orderID" , 
+        "UserAdresss" :{ 
+            "Home", "homeAddress",
+            "Work", "WorkAddress",
+            "Order", "OrderAddress",
+        } , 
+        "UserBookings":"all the bookingID of the user", 
+        "Userfavfood":"all the favfood marks foodID",
+        "UserNotification":{ 
+            "AllActive":false, 
+            "offerAndCoupons":false, 
+            "order and Booking": true
+            
+        }
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+    { 
+        "UserID": "userID", 
+        "UserName": "name", 
+        "UserEmail": "email",
+        "UserPhoneNo": "phonenumber", 
+        "UserOrders": "all the Order ID"
+        "UsercurrentOrder": "orderID" , 
+        "UserAdresss" :{ 
+            "Home", "homeAddress",
+            "Work", "WorkAddress",
+            "Order", "OrderAddress",
+        } , 
+        "UserBookings":"all the bookingID of the user", 
+        "Userfavfood":"all the favfood marks foodID",
+        "UserNotification":{ 
+            "AllActive":false, 
+            "offerAndCoupons":false, 
+            "order and Booking": true
+            
+        }
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    }
+]
+
+=====================
+restro details
+====================
+[ 
+    { 
+        "RestroID": 1 , 
+        "RestroName":"the Earth Plate", 
+        "RestroAddress":"Malad West", 
+        "rate":3,
+        "Popular": true,
+        "DeliveryOn":true,
+        "Menu":{ 
+            "type":"Veg"
+            "fooditemID":{ 
+
+            }
+        } 
+        "Deliverytime": "45"
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    },
+    
+]
+===================
+restroReview
+===================
+[ 
+    { 
+        "RestroID": 1,
+        "UserID":1, 
+        "review": "We went to Italian restaurant prego, we ordered risotto and pizza. We went to Italian restaurant prego, we ordered risotto and pizza.", 
+        "UserImage":"imageUrl", 
+        "rating": 4,
+        "CreatedAt": "22-04-2021 11:01:07",
+        "UpdatedAt":"22-04-2021 11:02:07",
+        "UpdatedAt":"NULL"
+    } 
+
+]

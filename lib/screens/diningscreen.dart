@@ -39,7 +39,7 @@ class _DiningScreenState extends State<DiningScreen> {
             ),
             Center(
               child: SizedBox(
-                height: width < 440 ? width / 3.5 : width / 5.5,
+                height: width < 441 ? width / 3.3 : width / 5.5,
                 child: ListView.builder(
                     physics: const ScrollPhysics(),
                     scrollDirection: Axis.horizontal,

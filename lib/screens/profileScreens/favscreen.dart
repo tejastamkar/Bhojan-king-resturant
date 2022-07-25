@@ -31,7 +31,7 @@ class _FavScreenState extends State<FavScreen> {
                   childAspectRatio: 1 / 1.2,
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 0,
-                  crossAxisCount: width < 440 ? 2 : 5),
+                  crossAxisCount: width < 441 ? 2 : 5),
               itemCount: favFood.length,
               itemBuilder: (context, index) => BigFoodCard(
                 name: favFood[index]['name'],

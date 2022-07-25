@@ -157,7 +157,7 @@ class _BookingProcessScreenState extends State<BookingProcessScreen> {
                 children: [
                   CarouselSlider(
                     options: CarouselOptions(
-                        height: width < 440 ? width / 2 : width / 3,
+                        height: width < 441 ? width / 2 : width / 3,
                         aspectRatio: 1 / 1,
                         viewportFraction: 1,
                         initialPage: 0,

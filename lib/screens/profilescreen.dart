@@ -31,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               alignment: Alignment.topCenter,
               children: [
                 SizedBox(
-                  height: width < 440 ? width / 1.8 : width / 3.7,
+                  height: width < 441 ? width / 1.8 : width / 3.7,
                   child: Image.asset(
                     'assets/profilebg.png',
                     fit: BoxFit.cover,

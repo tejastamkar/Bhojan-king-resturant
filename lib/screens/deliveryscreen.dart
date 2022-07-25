@@ -46,7 +46,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                 ),
               ),
               SizedBox(
-                height: width < 440 ? width / 3 : width / 6,
+                height: width < 441 ? width / 3 : width / 6,
                 child: ListView.builder(
                     physics: const ScrollPhysics(),
                     scrollDirection: Axis.horizontal,
@@ -69,9 +69,9 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
-                  height: width < 440 ? width / 3 : width / 5,
+                  height: width < 441 ? width / 3 : width / 5,
                   aspectRatio: 16 / 9,
-                  viewportFraction: width < 440 ? 0.8 : 0.4,
+                  viewportFraction: width < 441 ? 0.8 : 0.4,
                   initialPage: 0,
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 10),
@@ -85,7 +85,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                     builder: (BuildContext context) {
                       return Image.asset(
                         i,
-                        height: width < 440 ? 100 : 140,
+                        height: width < 441 ? 100 : 140,
                         fit: BoxFit.fill,
                       );
                     },
@@ -118,7 +118,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                     childAspectRatio: 1 / 1.2,
                     mainAxisSpacing: 1,
                     crossAxisSpacing: 0,
-                    crossAxisCount: width < 440
+                    crossAxisCount: width < 441
                         ? 2
                         : orientation == Orientation.landscape
                             ? 5

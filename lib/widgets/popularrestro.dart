@@ -36,7 +36,7 @@ class _PopularRestroState extends State<PopularRestro> {
               childAspectRatio: 1 / 1.2,
               mainAxisSpacing: 1,
               crossAxisSpacing: 0,
-              crossAxisCount: width < 440
+              crossAxisCount: width < 441
                   ? 2
                   : orientation == Orientation.landscape
                       ? 5

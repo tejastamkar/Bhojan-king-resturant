@@ -35,9 +35,9 @@ class _StreetVendorsState extends State<StreetVendors> {
             CarouselSlider(
               options: CarouselOptions(
                 enableInfiniteScroll: false,
-                height: width < 440 ? width / 3 : width / 5,
+                height: width < 441 ? width / 3 : width / 5,
                 aspectRatio: 16 / 9,
-                viewportFraction: width < 440 ? 0.8 : 0.4,
+                viewportFraction: width < 441 ? 0.8 : 0.4,
                 initialPage: 0,
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 10),
@@ -70,10 +70,10 @@ class _StreetVendorsState extends State<StreetVendors> {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: width < 440 ? 1 / 1.5 : 1 / 1,
+                  childAspectRatio: width < 441 ? 1 / 1.5 : 1 / 1,
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 0.5,
-                  crossAxisCount: width < 440 ? 4 : 7),
+                  crossAxisCount: width < 441 ? 4 : 7),
               itemCount: picFavList.length,
               itemBuilder: (context, index) => pickFav(
                 name: picFavFoodList[index]['name'],
@@ -94,7 +94,7 @@ class _StreetVendorsState extends State<StreetVendors> {
                   childAspectRatio: 1 / 1.2,
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 0,
-                  crossAxisCount: width < 440
+                  crossAxisCount: width < 441
                       ? 2
                       : orientation == Orientation.landscape
                           ? 5
