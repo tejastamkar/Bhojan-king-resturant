@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:restroapp/Data/cartdata.dart';
 import 'package:restroapp/widgets/tags.dart';
 
 class FoodCard extends StatefulWidget {
   final String name, image, decs, category;
-  final int price, reviews;
+  final int price, reviews, index;
   final double rate;
   final bool type, showdecs;
   const FoodCard(
@@ -17,7 +18,8 @@ class FoodCard extends StatefulWidget {
       required this.rate,
       required this.type,
       required this.showdecs,
-      required this.reviews})
+      required this.reviews,
+      required this.index})
       : super(key: key);
 
   @override
@@ -28,6 +30,8 @@ class _FoodCardState extends State<FoodCard> {
   int counter = 0;
   @override
   Widget build(BuildContext context) {
+    print(cartData);
+    print(cartData.length);
     if (!widget.showdecs) {
       return Card(
         shape: RoundedRectangleBorder(
@@ -222,6 +226,7 @@ class _FoodCardState extends State<FoodCard> {
                               setState(() {
                                 counter++;
                               });
+                              addCart(index: widget.index);
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Theme.of(context).primaryColor,
@@ -252,9 +257,12 @@ class _FoodCardState extends State<FoodCard> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 InkWell(
-                                  onTap: () => setState(() {
-                                    counter--;
-                                  }),
+                                  onTap: () => {
+                                    setState(() {
+                                      counter--;
+                                    }),
+                                    removeCart(index: widget.index),
+                                  },
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 5),
@@ -272,9 +280,12 @@ class _FoodCardState extends State<FoodCard> {
                                       fontWeight: FontWeight.w600),
                                 ),
                                 InkWell(
-                                  onTap: () => setState(() {
-                                    counter++;
-                                  }),
+                                  onTap: () => {
+                                    setState(() {
+                                      counter++;
+                                    }),
+                                    addCart(index: widget.index),
+                                  },
                                   child: Icon(Icons.add,
                                       color: Theme.of(context).primaryColor),
                                 ),

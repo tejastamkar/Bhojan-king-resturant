@@ -25,8 +25,19 @@ class RestroScreen extends StatefulWidget {
 
 class _RestroScreenState extends State<RestroScreen> {
   int current = 0;
+  bool veg = false, nonveg = false, favour = false;
+  check() {
+    if (veg == true && nonveg == true) {
+      setState(() {
+        veg = false;
+        nonveg = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    // check();
     Dialog menuDialogBox = Dialog(
       backgroundColor: Colors.white,
       child: ListView.builder(
@@ -80,7 +91,18 @@ class _RestroScreenState extends State<RestroScreen> {
                         ],
                       ),
                       const Spacer(),
-                      const Icon(Icons.favorite_border_rounded)
+                      InkWell(
+                          onTap: (() => setState(() {
+                                favour = !favour;
+                              })),
+                          child: favour
+                              ? const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                )
+                              : const Icon(
+                                  Icons.favorite_border_rounded,
+                                ))
                     ],
                   ),
                   Row(
@@ -188,18 +210,62 @@ class _RestroScreenState extends State<RestroScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          height: 20,
-                          width: 20,
-                          color: Colors.grey.shade200,
+                        InkWell(
+                          onTap: (() => setState(() {
+                                veg = !veg;
+                              })),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                  height: 20,
+                                  width: 20,
+                                  color: veg
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.grey.shade200,
+                                  child: veg
+                                      ? const Center(
+                                          child: Icon(
+                                          Icons.check,
+                                          color: Colors.white,
+                                          size: 18,
+                                        ))
+                                      : const SizedBox.shrink()),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Veg'),
+                            ],
+                          ),
                         ),
-                        const Text('Veg'),
-                        Container(
-                          height: 20,
-                          width: 20,
-                          color: Colors.grey.shade200,
+                        InkWell(
+                          onTap: (() => setState(() {
+                                nonveg = !nonveg;
+                              })),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                  height: 20,
+                                  width: 20,
+                                  color: nonveg
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.grey.shade200,
+                                  child: nonveg
+                                      ? const Center(
+                                          child: Icon(
+                                          Icons.check,
+                                          color: Colors.white,
+                                          size: 18,
+                                        ))
+                                      : const SizedBox.shrink()),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              const Text('Non-Veg'),
+                            ],
+                          ),
                         ),
-                        const Text('Non-Veg'),
                         TextButton(
                             style: ButtonStyle(
                                 foregroundColor: MaterialStateProperty.all(
@@ -235,15 +301,17 @@ class _RestroScreenState extends State<RestroScreen> {
                         shrinkWrap: true,
                         itemCount: 4,
                         itemBuilder: (context, index) => FoodCard(
-                            showdecs: true,
-                            type: toppurchaseItems[index]['type'],
-                            name: toppurchaseItems[index]['name'],
-                            image: toppurchaseItems[index]['image'],
-                            decs: toppurchaseItems[index]['decs'],
-                            category: toppurchaseItems[index]['category'],
-                            price: toppurchaseItems[index]['price'],
-                            rate: toppurchaseItems[index]['rate'],
-                            reviews: toppurchaseItems[index]['review']),
+                          showdecs: true,
+                          type: toppurchaseItems[index]['type'],
+                          name: toppurchaseItems[index]['name'],
+                          image: toppurchaseItems[index]['image'],
+                          decs: toppurchaseItems[index]['decs'],
+                          category: toppurchaseItems[index]['category'],
+                          price: toppurchaseItems[index]['price'],
+                          rate: toppurchaseItems[index]['rate'],
+                          reviews: toppurchaseItems[index]['review'],
+                          index: index,
+                        ),
                       ),
                       collapsed: const Text(''),
                     ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restroapp/Data/cartdata.dart';
+
 import 'package:restroapp/Data/itemlistdata.dart';
 import 'package:restroapp/widgets/bookingcard.dart';
 import 'package:restroapp/widgets/ordercard.dart';
@@ -15,6 +17,8 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
   String location = 'Home';
   @override
   Widget build(BuildContext context) {
+    print(cartData);
+    print(cartData.length);
     TabController tabController = TabController(length: 2, vsync: this);
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restroapp/Data/fooddata.dart';
 import 'package:restroapp/screens/fooditemscreen.dart';
-import 'package:restroapp/screens/toppurchasescreen.dart';
+import 'package:restroapp/screens/brandscreen.dart';
 import 'package:restroapp/widgets/foodcards.dart';
 
 class TopPurchaseSec extends StatefulWidget {
@@ -33,7 +33,9 @@ class _TopPurchaseSecState extends State<TopPurchaseSec> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (contect) => const TopPurchaseScreen()));
+                          builder: (contect) => const BrandScreen(
+                                title: 'Top Purchase',
+                              )));
                 },
                 child: Text(
                   'View all',
@@ -65,15 +67,17 @@ class _TopPurchaseSecState extends State<TopPurchaseSec> {
                           title: toppurchaseItems[index]['name'],
                           image: toppurchaseItems[index]['image'])))),
               child: FoodCard(
-                  showdecs: false,
-                  type: toppurchaseItems[index]['type'],
-                  name: toppurchaseItems[index]['name'],
-                  image: toppurchaseItems[index]['image'],
-                  decs: toppurchaseItems[index]['decs'],
-                  category: toppurchaseItems[index]['category'],
-                  price: toppurchaseItems[index]['price'],
-                  rate: toppurchaseItems[index]['rate'],
-                  reviews: toppurchaseItems[index]['review']),
+                showdecs: false,
+                type: toppurchaseItems[index]['type'],
+                name: toppurchaseItems[index]['name'],
+                image: toppurchaseItems[index]['image'],
+                decs: toppurchaseItems[index]['decs'],
+                category: toppurchaseItems[index]['category'],
+                price: toppurchaseItems[index]['price'],
+                rate: toppurchaseItems[index]['rate'],
+                reviews: toppurchaseItems[index]['review'],
+                index: index,
+              ),
             ),
           ),
         )

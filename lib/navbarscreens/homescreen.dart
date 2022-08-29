@@ -31,13 +31,46 @@ class _HomeScreenState extends State<HomeScreen> {
   // List of items in our dropdown menu
 
   int _current = 0;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     Orientation orientation = MediaQuery.of(context).orientation;
     // final GlobalKey<ScaffoldState> _key = GlobalKey();
-
+    Widget imageCarousel() => Dialog(
+          child: CarouselSlider(
+            options: CarouselOptions(
+                // height: width < 441 ? height / 5 : height / 3,
+                // aspectRatio: 16 / 9,
+                viewportFraction: 1,
+                initialPage: 0,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 10),
+                autoPlayAnimationDuration: const Duration(milliseconds: 1000),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
+            items: imageDataItems.map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        i,
+                        fit: BoxFit.fill,
+                        width: width,
+                      ));
+                },
+              );
+            }).toList(),
+          ),
+        );
     return Scaffold(
       appBar: AppBar(
         leading: null,
@@ -152,13 +185,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       items: imageDataItems.map((i) {
                         return Builder(
                           builder: (BuildContext context) {
-                            return ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Image.asset(
-                                  i,
-                                  fit: BoxFit.contain,
-                                  width: width,
-                                ));
+                            return InkWell(
+                              onTap: () => showDialog(
+                                  context: context,
+                                  builder: (context) => imageCarousel()),
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Image.asset(
+                                    i,
+                                    fit: BoxFit.contain,
+                                    width: width,
+                                  )),
+                            );
                           },
                         );
                       }).toList(),

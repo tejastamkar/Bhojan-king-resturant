@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:restroapp/Data/fooddata.dart';
 import 'package:restroapp/Data/itemlistdata.dart';
+import 'package:restroapp/screens/brandscreen.dart';
 import 'package:restroapp/widgets/bigfoodcards.dart';
 import 'package:restroapp/widgets/brandwidget.dart';
 import 'package:restroapp/widgets/flitre.dart';
@@ -19,7 +20,35 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     Orientation orientation = MediaQuery.of(context).orientation;
-
+    Widget imageCarousel() => Dialog(
+          child: CarouselSlider(
+            options: CarouselOptions(
+              // height: width < 441 ? height / 5 : height / 3,
+              // aspectRatio: 16 / 9,
+              viewportFraction: 1,
+              initialPage: 0,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 10),
+              autoPlayAnimationDuration: const Duration(milliseconds: 1000),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
+            items: offerList.map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        i,
+                        fit: BoxFit.fill,
+                        width: width,
+                      ));
+                },
+              );
+            }).toList(),
+          ),
+        );
     return Scaffold(
       appBar: AppBar(
         // elevation: 0,
@@ -54,9 +83,16 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                     itemCount: brandList.length,
                     itemBuilder: (context, index) => Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: BrandWidget(
-                              image: brandList[index]['image'],
-                              name: brandList[index]['name']),
+                          child: InkWell(
+                            onTap: (() => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BrandScreen(
+                                        title: brandList[index]['name'])))),
+                            child: BrandWidget(
+                                image: brandList[index]['image'],
+                                name: brandList[index]['name']),
+                          ),
                         )),
               ),
               const Padding(
@@ -83,10 +119,15 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                 items: offerList.map((i) {
                   return Builder(
                     builder: (BuildContext context) {
-                      return Image.asset(
-                        i,
-                        height: width < 441 ? 100 : 140,
-                        fit: BoxFit.fill,
+                      return InkWell(
+                        onTap: (() => showDialog(
+                            context: context,
+                            builder: (context) => imageCarousel())),
+                        child: Image.asset(
+                          i,
+                          height: width < 441 ? 100 : 140,
+                          fit: BoxFit.fill,
+                        ),
                       );
                     },
                   );

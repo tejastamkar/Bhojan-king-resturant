@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:restroapp/Data/fooddata.dart';
 import 'package:restroapp/Data/itemlistdata.dart';
+import 'package:restroapp/screens/brandscreen.dart';
 import 'package:restroapp/widgets/bigfoodcards.dart';
 import 'package:restroapp/widgets/flitre.dart';
 import 'package:restroapp/widgets/pickfavwidget.dart';
@@ -19,6 +20,36 @@ class _StreetVendorsState extends State<StreetVendors> {
     double width = MediaQuery.of(context).size.width;
 
     Orientation orientation = MediaQuery.of(context).orientation;
+
+    Widget imageCarousel() => Dialog(
+          child: CarouselSlider(
+            options: CarouselOptions(
+              // height: width < 441 ? height / 5 : height / 3,
+              // aspectRatio: 16 / 9,
+              viewportFraction: 1,
+              initialPage: 0,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 10),
+              autoPlayAnimationDuration: const Duration(milliseconds: 1000),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
+            items: offerList.map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        i,
+                        fit: BoxFit.fill,
+                        width: width,
+                      ));
+                },
+              );
+            }).toList(),
+          ),
+        );
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
@@ -49,10 +80,15 @@ class _StreetVendorsState extends State<StreetVendors> {
               items: offerList.map((i) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return Image.asset(
-                      i,
-                      height: 100,
-                      fit: BoxFit.fill,
+                    return InkWell(
+                      onTap: (() => showDialog(
+                          context: context,
+                          builder: (context) => imageCarousel())),
+                      child: Image.asset(
+                        i,
+                        height: 100,
+                        fit: BoxFit.fill,
+                      ),
                     );
                   },
                 );
@@ -75,9 +111,16 @@ class _StreetVendorsState extends State<StreetVendors> {
                   crossAxisSpacing: 0.5,
                   crossAxisCount: width < 441 ? 4 : 7),
               itemCount: picFavList.length,
-              itemBuilder: (context, index) => pickFav(
-                name: picFavFoodList[index]['name'],
-                image: picFavFoodList[index]['image'],
+              itemBuilder: (context, index) => InkWell(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => BrandScreen(
+                            title: picFavFoodList[index]['name'])))),
+                child: pickFav(
+                  name: picFavFoodList[index]['name'],
+                  image: picFavFoodList[index]['image'],
+                ),
               ),
             ),
             const Padding(

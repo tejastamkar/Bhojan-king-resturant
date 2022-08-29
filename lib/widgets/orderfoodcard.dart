@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:restroapp/Data/cartdata.dart';
 
 class OrderFoodCard extends StatefulWidget {
   final String image, itemName;
-  final int price, count;
+  final int price, count, index;
   final bool vn;
   const OrderFoodCard(
       {Key? key,
@@ -11,7 +12,8 @@ class OrderFoodCard extends StatefulWidget {
       required this.image,
       required this.itemName,
       required this.vn,
-      required this.price})
+      required this.price,
+      required this.index})
       : super(key: key);
 
   @override
@@ -102,23 +104,11 @@ class _OrderFoodCardState extends State<OrderFoodCard> {
                             padding: const EdgeInsets.all(5)),
                         child: const Text('ADD'),
                       )
-                    : Container(
-                        decoration: BoxDecoration(
+                    : Card(
+                        shape: RoundedRectangleBorder(
+                          side:
+                              BorderSide(color: Theme.of(context).primaryColor),
                           borderRadius: BorderRadius.circular(4),
-                          border: Border(
-                            bottom: BorderSide(
-                                style: BorderStyle.solid,
-                                color: Theme.of(context).primaryColor),
-                            left: BorderSide(
-                                style: BorderStyle.solid,
-                                color: Theme.of(context).primaryColor),
-                            right: BorderSide(
-                                style: BorderStyle.solid,
-                                color: Theme.of(context).primaryColor),
-                            top: BorderSide(
-                                style: BorderStyle.solid,
-                                color: Theme.of(context).primaryColor),
-                          ),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -128,7 +118,12 @@ class _OrderFoodCardState extends State<OrderFoodCard> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 5),
                               child: InkWell(
-                                onTap: () => setState(() {}),
+                                onTap: () => {
+                                  setState(() {
+                                    counter--;
+                                  }),
+                                  removeCart(index: widget.index)
+                                },
                                 child: Container(
                                   width: 10,
                                   height: 2,
@@ -142,9 +137,12 @@ class _OrderFoodCardState extends State<OrderFoodCard> {
                                   fontSize: 16, fontWeight: FontWeight.w600),
                             ),
                             InkWell(
-                              onTap: () => setState(() {
-                                counter++;
-                              }),
+                              onTap: () => {
+                                setState(() {
+                                  counter++;
+                                }),
+                                addCart(index: widget.index)
+                              },
                               child: Icon(Icons.add,
                                   color: Theme.of(context).primaryColor),
                             ),

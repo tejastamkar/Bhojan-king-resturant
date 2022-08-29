@@ -199,6 +199,7 @@ class _OrderScreenState extends State<OrderScreen> {
                           itemName: userOrder[index]['itemName'],
                           vn: userOrder[index]['type'] == 'V' ? true : false,
                           price: userOrder[index]['price'],
+                          index: index,
                         ),
                         const SizedBox(
                           height: 10,

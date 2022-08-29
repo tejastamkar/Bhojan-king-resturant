@@ -11,6 +11,34 @@ class FliterSelector extends StatefulWidget {
 }
 
 class _FliterSelectorState extends State<FliterSelector> {
+  Widget selector({required String name}) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Container(
+        height: 46,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            width: 0.5,
+            color: const Color.fromRGBO(110, 107, 107, 1),
+            style: BorderStyle.solid,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -30,32 +58,4 @@ class _FliterSelectorState extends State<FliterSelector> {
       ),
     );
   }
-}
-
-Widget selector({required String name}) {
-  return Card(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    child: Container(
-      height: 46,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          width: 0.5,
-          color: const Color.fromRGBO(110, 107, 107, 1),
-          style: BorderStyle.solid,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          name,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ),
-    ),
-  );
 }
